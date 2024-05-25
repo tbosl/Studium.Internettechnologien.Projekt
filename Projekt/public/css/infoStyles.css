@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#background {
+    background-image: url("../media/Background\ light.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: fit-content;
+}
+
+#header {
+    height: 10vh;
+    position: relative;
+    background-color: black;
+    z-index: 2;
+}
+
+.links-to-other-pages {
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}
+
+#logo {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 55%;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+nav ul li a:hover {
+    color: #ccc;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+#content {
+    text-align: center;
+}
+
+#video {
+    border-color: #c80d0d;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    margin-top: 5%;
+}
+
+#info-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    line-height: 2;
+}
+
+#info-container {
+    background-color: rgba(51, 51, 51, 0.65);
+    border-radius: 40px;
+    padding: 2.5%;
+    margin-top: 5%;
+    color: white;
+    border-color: #c80d0d;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#headline-container {
+    background-color: rgba(51, 51, 51, 0.65);
+    border-radius: 40px;
+    padding: 5px;
+    margin-top: 5%;
+    color: white;
+    border-color: #c80d0d;
+    border-style: solid;
+    border-width: 2px;
+}
+
+#bottom-spacer {
+    height: 5vh;
+}
