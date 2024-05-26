@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#background {
+    background-image: url("../media/Background\ light.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: fit-content;
+}
+
+#bottom-spacer {
+    height: 5vh;
+}
