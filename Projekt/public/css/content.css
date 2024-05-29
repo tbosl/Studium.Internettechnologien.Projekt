@@ -6,11 +6,15 @@ body {
 }
 
 #background {
-    background-image: url("../media/Background\ light.png");
+    background-image: url("../media/Background light.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: fit-content;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 #content {
@@ -20,7 +24,8 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
+    overflow-wrap: break-word;
 }
 
 #headline-container {
