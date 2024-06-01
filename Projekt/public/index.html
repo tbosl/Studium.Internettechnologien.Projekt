@@ -32,56 +32,33 @@
                 </ul>
             </nav>
         </header>
-        <div id="msgs" style="height:400px; width:400px; overflow: scroll; float:left;">
+        <div id="content">
+            <div id="headline-container">
+                <h1>Chat</h1>
+            </div>
+            <div id="info-container">
+                <p id="info-text">Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein
+                    neues Team erstellen. Wir kümmern uns schnellst möglich um dein Anliegen.</p>
+            </div>
+            <div id="chat-frame">
+                <div id="chat">
+                    <div id="msgs">
+                    </div>
+                    <div id="users">
+                    </div>
+                    <form id="chatForm">
+                        <!-- <label for="msg">u1:&nbsp;</label> -->
+                        <div id="inputArea">
+                            <input id="msg" type="text">
+                            <button id="sendBtn">
+                                <image src="media/send.png" width="30px">
+                            </button>
+                        </div>
+                        <script src="js/chat/initialization.js"></script>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div id="users" style="height:400px; width:100px; overflow: scroll;">
-        </div>
-        <form id="chatForm">
-            <label for="msg">u1:&nbsp;</label>
-            <input id="msg" type="text" />
-            <button id="sendBtn">Send</button>
-            <script>
-                const answers = new Array(40);
-                var i = 0;
-                var socket = new WebSocket('ws://127.0.0.1:8181/', 'chat');
-                var name = 'u1'
-                socket.onopen = function () {
-
-                    name = "name" + Math.floor(Math.random() * Math.floor(700));
-
-                    socket.send('{"type": "join", "name":"' + name + '"}');
-                }
-                $('#sendBtn').on('click', function (e) {
-                    e.preventDefault();
-                    //name = 'u1',
-                    msg = $('#msg').val();
-                    socket.send('{"type": "msg", "msg": "' + msg + '","sender":"' + name + '"}');
-                    $('#msg').val('');
-                });
-                socket.onmessage = function (msg) {
-                    var data = JSON.parse(msg.data);
-                    switch (data.type) {
-                        case 'msg':
-                            if (data.name == name || (data.name == "MegaBot" && data.sender == name) || (data.name == "MegaBot" && data.sender == "MegaBot"))
-                                var msg = $('<div>' + data.name + ': ' + data.msg +
-                                    '</div>');
-                            $('#msgs').append(msg);
-                            answers[i] = data.msg;
-                            //document.write(answers[i]);
-                            i++;
-                            break;
-                        case 'join':
-                            $('#users').empty();
-                            for (var i = 0; i < data.names.length; i++) {
-                                var user = $('<div>' + data.names[i] + '</div>');
-                                $('#users').append(user);
-                            }
-                            break;
-                    }
-                };
-
-            </script>
-        </form>
     </div>
 </body>
 
