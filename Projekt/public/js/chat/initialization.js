@@ -9,22 +9,31 @@ socket.onopen = function () {
     socket.send('{"type": "join", "name":"' + name + '"}');
 }
 
-$('#sendBtn').on('click', function (e) {
-    e.preventDefault();
+
+function sendMessage() {
     msg = $('#msg').val();
     socket.send('{"type": "msg", "msg": "' + msg + '","sender":"' + name + '"}');
     $('#msg').val('');
+}
+
+$('#sendBtn').on('click', function (e) {
+    e.preventDefault();
+    sendMessage();
 });
 
 
 $('#msg').on('keypress', function (e) {
     if (e.which === 13) {
         e.preventDefault();
-        msg = $('#msg').val();
-        socket.send('{"type": "msg", "msg": "' + msg + '","sender":"' + name + '"}');
-        $('#msg').val('');
+        sendMessage();
     }
 });
+
+function scrollToBottom(elementId) {
+    var element = $("#" + elementId);
+    element.scrollTop(element[0].scrollHeight);;
+}
+
 socket.onmessage = function (msg) {
     var data = JSON.parse(msg.data);
     switch (data.type) {
@@ -49,4 +58,5 @@ socket.onmessage = function (msg) {
             }
             break;
     }
+    scrollToBottom('msgs');
 };

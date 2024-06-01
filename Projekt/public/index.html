@@ -1,65 +1,66 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="media/SEC Logo kompakt.png">
-    <link rel="stylesheet" href="css/header.css" type="text/css">
-    <link rel="stylesheet" href="css/content.css" type="text/css">
-    <link rel="stylesheet" href="css/chat.css" type="text/css">
-    <script src="/js/jquery.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="media/SEC Logo kompakt.png" />
+  <link rel="stylesheet" href="css/header.css" type="text/css" />
+  <link rel="stylesheet" href="css/content.css" type="text/css" />
+  <link rel="stylesheet" href="css/chat.css" type="text/css" />
+  <script src="/js/jquery.js"></script>
 </head>
 
 <body>
-    <div id="background">
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="info.html">
-                            <img id="logo" src="media/SEC_Logo_kompakt_weiß.png" width="80vh" alt="Logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a class="links-to-other-pages" id="links-to-chat" href="index.html">Chat</a>
-                    </li>
-                    <li>
-                        <a class="links-to-other-pages" href="events.html">Events</a>
-                    </li>
-                    <li>
-                        <a class="links-to-other-pages" href="contacts.html">Kontakt</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div id="content">
-            <div id="headline-container">
-                <h1>Chat</h1>
+  <div id="background">
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="info.html">
+              <img id="logo" src="media/SEC_Logo_kompakt_weiß.png" width="80vh" alt="Logo" />
+            </a>
+          </li>
+          <li>
+            <a class="links-to-other-pages" id="links-to-chat" href="index.html">Chat</a>
+          </li>
+          <li>
+            <a class="links-to-other-pages" href="events.html">Events</a>
+          </li>
+          <li>
+            <a class="links-to-other-pages" href="contacts.html">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div id="content">
+      <div id="headline-container">
+        <h1>Chat</h1>
+      </div>
+      <div id="info-container">
+        <p id="info-text">
+          Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich
+          registrieren und ein neues Team erstellen.<br />
+          Wir kümmern uns schnellst möglich um dein Anliegen!
+        </p>
+      </div>
+      <div id="chat-frame">
+        <div id="chat">
+          <div id="msgs"></div>
+          <div id="users"></div>
+          <form id="chatForm">
+            <!-- <label for="msg">u1:&nbsp;</label> -->
+            <div id="inputArea">
+              <input id="msg" type="text" />
+              <button id="sendBtn">
+                <image src="media/send.png" width="30px" />
+              </button>
             </div>
-            <div id="info-container">
-                <p id="info-text">Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein
-                    neues Team erstellen. Wir kümmern uns schnellst möglich um dein Anliegen.</p>
-            </div>
-            <div id="chat-frame">
-                <div id="chat">
-                    <div id="msgs">
-                    </div>
-                    <div id="users">
-                    </div>
-                    <form id="chatForm">
-                        <!-- <label for="msg">u1:&nbsp;</label> -->
-                        <div id="inputArea">
-                            <input id="msg" type="text">
-                            <button id="sendBtn">
-                                <image src="media/send.png" width="30px">
-                            </button>
-                        </div>
-                        <script src="js/chat/initialization.js"></script>
-                    </form>
-                </div>
-            </div>
+            <script src="js/chat/initialization.js"></script>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>

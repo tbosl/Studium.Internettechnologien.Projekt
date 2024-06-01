@@ -73,7 +73,7 @@ wss.on('request', function (request) {
         break
       case 'msg':
         // Erstelle eine Nachricht in JSON mit Typ, Sender und Inhalt
-        msg = '{"type": "msg", "name":"' + name + '", "msg":"' + data.msg + '","sender":"'+data.sender+'"}'
+        msg = '{"type": "msg", "name":"' + name + '", "msg":"' + data.msg + '","sender":"' + data.sender + '"}'
         utype = 'msg'
         uname = name
         umsg = data.msg
@@ -86,7 +86,7 @@ wss.on('request', function (request) {
         connections[key].send(msg)
       }
     }
-    
+
     // Leite die Daten des Users an den Bot weiter, damit der antworten kann
     if (uname !== 'MegaBot' && utype === 'msg') {
       myBot.post(msg)
