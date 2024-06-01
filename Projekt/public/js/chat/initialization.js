@@ -4,7 +4,7 @@ var socket = new WebSocket('ws://127.0.0.1:8181/', 'chat');
 var name = 'u1'
 socket.onopen = function () {
 
-    name = "name" + Math.floor(Math.random() * Math.floor(700));
+    name = "driver" + Math.floor(Math.random() * Math.floor(700));
 
     socket.send('{"type": "join", "name":"' + name + '"}');
 }

@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-top: 50px;
-  height: 80%;
+  height: 70%;
 }
 
 #chat {
@@ -11,7 +12,7 @@
   border-radius: 20px;
   background-color: rgba(54, 57, 63, 0.5);
   padding: 10px;
-  width: 80%;
+  width: 60%;
   height: 70%;
   color: #dcddde;
   font-family: 'Whitney', sans-serif;
