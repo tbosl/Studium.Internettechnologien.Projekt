@@ -29,11 +29,11 @@
   overflow-y: scroll;
 }
 
-#users > div {
+#users>div {
   margin-bottom: 10px;
 }
 
-#users > div:last-child {
+#users>div:last-child {
   margin-bottom: 0;
 }
 
@@ -48,11 +48,11 @@
   overflow-y: auto;
 }
 
-#msgs > div {
+#msgs>div {
   margin-bottom: 10px;
 }
 
-#msgs > div:last-child {
+#msgs>div:last-child {
   margin-bottom: 0;
 }
 
