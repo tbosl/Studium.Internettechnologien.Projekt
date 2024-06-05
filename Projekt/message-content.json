@@ -1,0 +1,311 @@
+{
+    "cancel": [
+        "Abbrechen",
+        "Stop",
+        "Ende",
+        "Beenden"
+    ],
+    "stages": [
+        {
+            "name": "welcome",
+            "introduction": "Willkommen im Chat der SEC. Du kannst hier ein Fahrerprofil anlegen, um an den SEC-Rennen teilzunehmen. Alternativ kannst du uns das Fahrzeug, mit welchem du teilnehmen möchstest mitteilen. Du kannst den Dialog jederzeit abbrechen, lass es mich einfach wissen",
+            "regexCheck": false,
+            "validInputs": {
+                "registerDriver": [
+                    "Fahrerprofil erstellen",
+                    "Fahrer registrieren",
+                    "Fahrerprofil anlegen"
+                ],
+                "registerVehicle": [
+                    "Fahrzeug registrieren",
+                    "Fahrzeug hinzufügen",
+                    "Fahrzeug anmelden",
+                    "Fahrzeug mitteilen"
+                ]
+            },
+            "invalidInputResponses": [
+                "Entschuldigung, zu diesem Thema kann ich dir nicht weiterhelfen. Wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest, helfe ich dir gerne weiter.",
+                "Diese Eingabe verstehe ich nicht. Lass es mich gerne wissen, wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest.",
+                "Das habe ich leider nicht verstanden. Wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest, helfe ich dir gerne weiter."
+            ]
+        },
+        {
+            "name": "registerDriver",
+            "introduction": "Alles klar! Wir benötigen noch ein paar Informationen von dir, um dein Fahrerprofil zu erstellen. Bitte gib mir Bescheid, wenn du bereit bist.",
+            "regexCheck": false,
+            "validInputs": [
+                "Ja",
+                "Jo",
+                "Bereit",
+                "Los geht's",
+                "Start",
+                "Okay",
+                "Yes",
+                "Y"
+            ],
+            "invalidInputResponses": [
+                "Wenn du dir zunächst ein Bild über unseren Datenschutz machen willst, lies dir gerne unsere Datenschutzbestimmungen durch. Wenn du bereit bist, gib mir Bescheid.",
+                "Wenn du bereit bist, gib mir Bescheid. Ich helfe dir gerne weiter."
+            ]
+        },
+        {
+            "name": "enterEmail",
+            "introduction": "Zunächst benötige ich deine E-Mail-Adresse. Wie lautet diese?",
+            "regexCheck": true,
+            "validInputRegex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/",
+            "invalidInputResponses": [
+                "Das ist leider keine gültige E-Mail-Adresse. Bitte versuche es erneut.",
+                "Tut mir leid, aber das ist kein gültiges E-Mail-Format. Bitte nenne mir eine gültige E-Mail-Adresse."
+            ]
+        },
+        {
+            "name": "enterPassword",
+            "introduction": "Damit du dich später mit deinem Account einloggen kannst benötigen wir noch ein Passwort. Bitte gib mir ein Passwort.",
+            "regexCheck": true,
+            "validInputRegex": "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$/",
+            "invalidInputResponses": [
+                "Das Passwort entspricht unseren Richtlinien nicht. Bitte gib ein Passwort ein, welches 8-20 Zeichen lang ist und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält.",
+                "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
+            ]
+        },
+        {
+            "name": "enterFirstName",
+            "introduction": "Ich werden nun einige Informationen zu deine Person abfragen. Wie lautet dein Vorname?",
+            "regexCheck": true,
+            "validInputRegex": "/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,50}$/",
+            "invalidInputResponses": [
+                "Das ist kein gültiger Vorname. Bitte gib deinen Vornamen an, achte darauf keine Sonderzeichen wie @$& etc. zu verwenden.",
+                "Das habe ich leider nicht verstanden. Bitte beachte, dass dein Vorname keine Sonderzeichen enthalten darf."
+            ]
+        },
+        {
+            "name": "enterLastName",
+            "introduction": "Alles klar {{firstName}}. Wie lautet dein Nachname?",
+            "regexCheck": true,
+            "validInputRegex": "/^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,50}$/",
+            "invalidInputResponses": [
+                "Das ist kein gültiger Nachname. Bitte gib deinen Nachname an, achte darauf keine Sonderzeichen (@, $, &, etc.) zu verwenden.",
+                "Das habe ich leider nicht verstanden. Bitte beachte, dass dein Nachname keine Sonderzeichen enthalten darf."
+            ]
+        },
+        {
+            "name": "enterAbbreviation",
+            "introduction": "Welches Kürzel möchtest du auf der Rennstrecke verwenden? (Maximal 3 Zeichen)",
+            "regexCheck": true,
+            "validInputRegex": "/^[A-Za-z]{1,3}$/",
+            "invalidInputResponses": [
+                "Dieses Kürzel ist leider nicht möglich. Bitte achte darauf, dass es 1-3 Zeichen hat und lediglich Buchstaben enthält.",
+                "Dieses Kürzel ist nicht erlaubt, da es nicht den Anforderungen entspricht. Bitte gib ein Kürzel mit 1-3 Buchstaben an."
+            ]
+        },
+        {
+            "name": "enterBirthdate",
+            "introduction": "Wann hast du Geburtstag? (TT.MM.JJJJ)",
+            "regexCheck": true,
+            "validInputRegex": "/^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[0-2])\\.\\d{4}$/",
+            "invalidInputResponses": [
+                "Dieses Geburtsdatum kann ich nicht verarbeiten. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an. Achte auf fürhende Nullen und den Punkt zwischen den Zahlen.",
+                "Das ist kein gültiges Geburtsdatum. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an. Achte auf fürhende Nullen und den Punkt zwischen den Zahlen."
+            ]
+        },
+        {
+            "name": "enterPhone",
+            "introduction": "Nun benötige ich noch deine Telefonnummer. Wie lautet diese?",
+            "regexCheck": true,
+            "validInputRegex": "/^(\\+49|0)\\d+$/",
+            "invalidInputResponses": [
+                "Das ist keine gültige Telefonnummer. Bitte gib eine gültige Telefonnummer an, die mit 0 oder +49 beginnt.",
+                "Diese Nummer ist nicht gültig. Derzeit müssen alle Fahrer ein deutsche Telefonnummer haben, die mit 0 oder +49 beginnt."
+            ]
+        },
+        {
+            "name": "enterStreet",
+            "introduction": "Jetzt benötige ich noch deine Adresse. In welcher Straße wohnt du?",
+            "regexCheck": true,
+            "validInputRegex": "/^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.'][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$/",
+            "invalidInputResponses": [
+                "Das ist kein gülitger Straßenname. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
+                "Dieser Straßenname existiert nicht. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden."
+            ]
+        },
+        {
+            "name": "enterHouseNumber",
+            "introduction": "In welcher Hausnummer wohnst du?",
+            "regexCheck": true,
+            "validInputRegex": "/^([1-9]\\d{0,2}|1000)([a-f])?$/",
+            "invalidInputResponses": [
+                "Diese Hausnummer ist ungültig. Verwende bitte Nummern von 1 bis 1000. Du kannst auch Kleinbuchstaben von a bis f anhängen.",
+                "Das ist leider keine valide Hausnummer. Bitte gib eine gültige Hausnummer an. Diese sollte zwischen 1 und 1000 liegen und kann optional mit einem Kleinbuchstaben von a bis f enden."
+            ]
+        },
+        {
+            "name": "enterCity",
+            "introduction": "Aus welche Stadt kommst du?",
+            "regexCheck": true,
+            "validInputRegex": "/^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$/",
+            "invalidInputResponses": [
+                "Diese Stadt existiert nicht. Bitte gib eine gültige Stadt an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
+                "Dieser Städtename wäre mir neu. Bitte gib eine gültige Stadt an, vermeide Sonderzeichen wie @, $, & etc."
+            ]
+        },
+        {
+            "name": "enterZip",
+            "introduction": "Wie lautet die Postleitzahl deines Wohnortes?",
+            "regexCheck": true,
+            "validInputRegex": "/^\\d{5}$/",
+            "invalidInputResponses": [
+                "Diese Postleitzahl ist nicht gültig. Bitte gib eine gültige Postleitzahl an, die aus 5 Zahlen besteht.",
+                "Die Postleitzahl ist nicht korrekt. Deine Postleitzahl sollte aus genau 5 Zahlen bestehen."
+            ]
+        },
+        {
+            "name": "enterState",
+            "introduction": "In welchem Bundesland oder in welcher Region wohnst du?",
+            "regexCheck": false,
+            "validInputs": [
+                "Bayern",
+                "Baden-Württemberg",
+                "Berlin",
+                "Brandenburg",
+                "Bremen",
+                "Hamburg",
+                "Hessen",
+                "Niedersachsen",
+                "Mecklenburg-Vorpommern",
+                "Nordrhein-Westfalen",
+                "Rheinland-Pfalz",
+                "Saarland",
+                "Sachsen",
+                "Sachsen-Anhalt",
+                "Schleswig-Holstein",
+                "Thüringen",
+                "Burgenland",
+                "Kärnten",
+                "Niederösterreich",
+                "Oberösterreich",
+                "Salzburg",
+                "Steiermark",
+                "Tirol",
+                "Vorarlberg",
+                "Wien",
+                "Aargau",
+                "Appenzell Ausserrhoden",
+                "Appenzell Innerrhoden",
+                "Basel-Landschaft",
+                "Basel-Stadt",
+                "Bern",
+                "Fribourg",
+                "Genève",
+                "Glarus",
+                "Graubünden",
+                "Jura",
+                "Luzern",
+                "Neuchâtel",
+                "Nidwalden",
+                "Obwalden",
+                "Schaffhausen",
+                "Schwyz",
+                "Solothurn",
+                "St. Gallen",
+                "Thurgau",
+                "Ticino",
+                "Uri",
+                "Valais",
+                "Vaud",
+                "Zug",
+                "Zürich"
+            ],
+            "invalidInputResponses": [
+                "Dieses Bundesland existiert nicht. Bitte achte darauf, dass das Bundesland in Deutschland, Österreich oder der Schweiz liegen muss.",
+                "Dein genanntes Bundesland liegt leider in keinem Partnerland. Bitte nenne ein Bundesland aus der Deutschland, Österreich oder der Schweiz."
+            ]
+        },
+        {
+            "name": "enterCountry",
+            "introduction": "Aus welchem Land kommst du?",
+            "regexCheck": false,
+            "validInputs": [
+                "Deutschland",
+                "Österreich",
+                "Schweiz"
+            ],
+            "invalidInputResponses": [
+                "Die gülitgen Länder sind derzeit Deutschland, Österreich oder die Schweiz. Bitte stelle sicher eines dieser Länder zu anzugeben.",
+                "Das genannte Land ist leider kein Parterland (Deutschland, Österreich oder der Schweiz). Bitte nenne eines dieser Länder."
+            ]
+        },
+        {
+            "name": "enterLicenseID",
+            "introduction": "Wie lautet die ID deiner Rennlizenz? (Die ID startet mit 3 Buchstaben und endet mit 5 Zahlen)",
+            "regexCheck": true,
+            "validInputRegex": "^[A-Za-z]{3}\\d{5}$",
+            "invalidInputResponses": [
+                "Diese Lizenz-ID ist nicht gültig. Bitte gib deine gültige Lizenz-ID an, die mit 3 Buchstaben und 5 Zahlen endet.",
+                "Die Lizenz-ID ist nicht korrekt. Deine Lizenz-ID sollte mit 3 Buchstaben starten und mit 5 Zahlen enden."
+            ]
+        },
+        {
+            "name": "endDriverRegistration",
+            "introduction": "Vielen Dank für die Bereitstellung deiner Daten!\nIch habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.\n\nVorname: {{firstName}}\nNachname: {{lastName}}\nGeburtsdatum: {{birthdate}}\nE-Mail: {{email}}\nTelefonnummer: {{phone}}\nStraße: {{street}}\nHausnummer: {{houseNumber}}\nPostleitzahl: {{zip}}\nStadt: {{city}}\nBundesland: {{state}}\nLand: {{country}}\nRennlizenz-ID: {{licenseID}}",
+            "regexCheck": false,
+            "validInputs": {
+                "processRegistration": [
+                    "Ja",
+                    "Richtig",
+                    "Bestätigen",
+                    "Bestätige",
+                    "Alles korrekt",
+                    "Korrekt",
+                    "Stimmt",
+                    "Stimmt so"
+                ],
+                "editInput": [
+                    "Vorname",
+                    "Nachname",
+                    "Geburtsdatum",
+                    "E-Mail",
+                    "Telefonnummer",
+                    "Straße",
+                    "Hausnummer",
+                    "Postleitzahl",
+                    "Stadt",
+                    "Bundesland",
+                    "Land",
+                    "Rennlizenz-ID"
+                ]
+            },
+            "invalidInputResponses": [
+                "Ich verstehe nicht genau, was du meinst. Bitte bestätige die Richtigkeit deiner Daten oder gib an, welche Information du ändern möchtest.",
+                "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder gib an, welche Information du ändern möchtest."
+            ]
+        },
+        {
+            "name": "registerVehicle",
+            "introduction": ""
+        },
+        {
+            "name": "enterVehicleBrand",
+            "introduction": ""
+        },
+        {
+            "name": "enterVehicleModel",
+            "introduction": ""
+        },
+        {
+            "name": "enterStartNumber",
+            "introduction": ""
+        },
+        {
+            "name": "enterVehicleName",
+            "introduction": ""
+        },
+        {
+            "name": "enterVehiclePassword",
+            "introduction": ""
+        },
+        {
+            "name": "illegalArgumentForCurrentStage",
+            "introduction": ""
+        }
+    ]
+}
