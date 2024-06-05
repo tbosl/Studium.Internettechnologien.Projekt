@@ -270,7 +270,7 @@
             },
             {
                 "name": "endDriverRegistration",
-                "introduction": "Vielen Dank für die Bereitstellung deiner Daten! Ich habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Vorname:{{/t}}{{/t}}{{firstName}}{{/n}}Nachname:{{/t}}{{/t}}{{lastName}}{{/n}}Geburtsdatum:{{/t}}{{/t}}{{birthdate}}{{/n}}E-Mail:{{/t}}{{/t}}{{email}}{{/n}}Telefonnummer:{{/t}}{{/t}}{{phone}}{{/n}}Straße:{{/t}}{{/t}}{{street}}{{/n}}Hausnummer:{{/t}}{{/t}}{{houseNumber}}{{/n}}Postleitzahl:{{/t}}{{/t}}{{zip}}{{/n}}Stadt:{{/t}}{{/t}}{{city}}{{/n}}Bundesland:{{/t}}{{/t}}{{state}}{{/n}}Land:{{/t}}{{/t}}{{country}}{{/n}}Rennlizenz-ID:{{/t}}{{/t}}{{licenseID}}",
+                "introduction": "Vielen Dank für die Bereitstellung deiner Daten! Ich habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Vorname:{{/t}}{{firstName}}{{/n}}Nachname:{{/t}}{{lastName}}{{/n}}Geburtsdatum:{{/t}}{{birthdate}}{{/n}}E-Mail:{{/t}}{{email}}{{/n}}Telefonnummer:{{/t}}{{phone}}{{/n}}Straße:{{/t}}{{street}}{{/n}}Hausnummer:{{/t}}{{houseNumber}}{{/n}}Postleitzahl:{{/t}}{{zip}}{{/n}}Stadt:{{/t}}{{city}}{{/n}}Bundesland:{{/t}}{{state}}{{/n}}Land:{{/t}}{{country}}{{/n}}Rennlizenz-ID:{{/t}}{{licenseID}}",
                 "regexCheck": false,
                 "validInputs": {
                     "processRegistration": [
@@ -455,7 +455,7 @@
             },
             {
                 "name": "endVehicleRegistration",
-                "introduction": "Super, ich habe jeztt alle Informationen die ich benötige.. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{/t}}{{/t}}{{vehicleBrand}}{{/n}}Modell:{{/t}}{{/t}}{{vehicleModel}}{{/n}}Startnummer:{{/t}}{{/t}}{{startNumber}}{{/n}}Teamname:{{/t}}{{/t}}{{teamName}}",
+                "introduction": "Super, ich habe jeztt alle Informationen die ich benötige.. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{/t}}{{vehicleBrand}}{{/n}}Modell:{{/t}}{{vehicleModel}}{{/n}}Startnummer:{{/t}}{{startNumber}}{{/n}}Teamname:{{/t}}{{teamName}}",
                 "regexCheck": false,
                 "validInputs": {
                     "processRegistration": [

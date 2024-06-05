@@ -42,7 +42,7 @@ socket.onmessage = function (msg) {
                 var pClassName = data.name == "MegaBot" ? "bot-userName" : "user-userName";
                 var pUserName = '<p class="' + pClassName + '">' + data.name + ':</p>';
                 var className = data.name == "MegaBot" ? "bot-message" : "user-message";
-                var msg = $('<div class="' + className + '">' + pUserName + replacePlaceholderLineBreaksWithLineBreaks(data.msg) +
+                var msg = $('<div class="' + className + '">' + pUserName + replacePlaceholderLineBreaksWithLineBreaksAndTabs(data.msg) +
                     '</div>');
             }
             $('#msgs').append(msg);
@@ -61,8 +61,27 @@ socket.onmessage = function (msg) {
     scrollToBottom('msgs');
 };
 
-function replacePlaceholderLineBreaksWithLineBreaks(msg) {
+function replacePlaceholderLineBreaksWithLineBreaksAndTabs(msg) {
     let result = msg.replace(/{{\/n}}/g, "<br>");
-    result = result.replace(/{{\/t}}/g, "");
+    // result = replaceTabs(result);
+    result = result.replace(/{{\/t}}/g, "&nbsp;");
+    return result;
+}
+function replaceTabs(result) {
+    let lines = result.split("<br>");
+    for (let line of lines) {
+        let targetLineLengthAtStartOfValue = 25;
+        let startOfTab = line.indexOf("{{/t}}");
+        if (startOfTab == -1) { // no tab in the line
+            continue;
+        }
+        let requiredTabs = targetLineLengthAtStartOfValue - startOfTab;
+        let spacer = "";
+        for (let tab = 1; tab <= requiredTabs; tab++) {
+            spacer += "&nbsp;";
+        }
+        let newline = line.replace("{{/t}}", spacer);
+        result = result.replace(line, newline);
+    }
     return result;
 }
