@@ -42,7 +42,7 @@ socket.onmessage = function (msg) {
                 var pClassName = data.name == "MegaBot" ? "bot-userName" : "user-userName";
                 var pUserName = '<p class="' + pClassName + '">' + data.name + ':</p>';
                 var className = data.name == "MegaBot" ? "bot-message" : "user-message";
-                var msg = $('<div class="' + className + '">' + pUserName + data.msg +
+                var msg = $('<div class="' + className + '">' + pUserName + replacePlaceholderLineBreaksWithLineBreaks(data.msg) +
                     '</div>');
             }
             $('#msgs').append(msg);
@@ -60,3 +60,9 @@ socket.onmessage = function (msg) {
     }
     scrollToBottom('msgs');
 };
+
+function replacePlaceholderLineBreaksWithLineBreaks(msg) {
+    let result = msg.replace(/{{\/n}}/g, "<br>");
+    result = result.replace(/{{\/t}}/g, "");
+    return result;
+}
