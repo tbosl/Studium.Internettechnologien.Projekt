@@ -1,11 +1,18 @@
 {
-    "cancel": [
-        "Abbrechen",
-        "Stop",
-        "Ende",
-        "Beenden",
-        "Abbruch"
-    ],
+    "cancelWorkflow": {
+        "cancelInput": [
+            "Abbrechen",
+            "Stop",
+            "Ende",
+            "Beenden",
+            "Abbruch"
+        ],
+        "cancelResponses": [
+            "Tut mir leid, dass ich dir nicht helfen konnte. Wenn du später Hilfe benötigst, stehe ich dir gerne zur Verfügung.",
+            "Der Dialog wurde beendet. Wenn du später Hilfe benötigst, stehe ich dir gerne zur Verfügung.",
+            "Der Chat wurde gestoppt. Wenn du erneut Unterstützung benötigst, helfe ich dir jederzeit gerne weiter."
+        ]
+    },
     "stages": {
         "welcomeWorkflow": [
             {
@@ -281,6 +288,10 @@
                     "Ich verstehe nicht genau, was du meinst. Bitte bestätige die Richtigkeit deiner Daten oder gib an, welche Information du ändern möchtest.",
                     "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder gib an, welche Information du ändern möchtest."
                 ]
+            },
+            {
+                "name": "driverRegistrationVerfied",
+                "introduction": "Perfekt, die Registrierung deines Fahrerprofils war erfolgreich. Du kannst nun an den SEC-Rennen teilnehmen. Wenn du noch etwas weiters erledigen möchtest, lass es mich gerne wissen."
             }
         ],
         "registerVehicleWorkflow": [
@@ -449,6 +460,10 @@
                     "Ich verstehe nicht genau, was du meinst. Bitte bestätige die Richtigkeit deiner Daten oder gib an, welche Information du ändern möchtest.",
                     "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder nenne mir, welche Information du ändern möchtest."
                 ]
+            },
+            {
+                "name": "vehicleRegistrationVerfied",
+                "introduction": "Vielen Dank, dein Fahrzeug wurde erfolgreich registriert. Du kannst nun mit ihm an den SEC-Rennen teilnehmen. Wenn du noch etwas weiters erledigen möchtest, lass es mich gerne wissen."
             }
         ]
     }
