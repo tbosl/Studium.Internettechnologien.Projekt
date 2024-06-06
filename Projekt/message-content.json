@@ -23,7 +23,7 @@
         "Hausnummer": "houseNumber",
         "Postleitzahl": "zip",
         "Stadt": "city",
-        "Bundesland": "state",
+        "Region": "state",
         "Land": "country",
         "Rennlizenz-ID": "licenseID",
         "Hersteller": "vehicleBrand",
@@ -70,7 +70,7 @@
                     "Start",
                     "Okay",
                     "Yes",
-                    "Y"
+                    "Passt"
                 ],
                 "invalidInputResponses": [
                     "Wenn du dir zunächst ein Bild über unseren Datenschutz machen willst, lies dir gerne unsere Datenschutzbestimmungen durch. Wenn du bereit bist, gib mir Bescheid.",
@@ -106,7 +106,7 @@
             {
                 "name": "enterFirstName",
                 "dataKey": "firstName",
-                "introduction": "Ich werde nun einige Informationen zu deine Person abfragen. Wie lautet dein Vorname?",
+                "introduction": "Ich werde nun einige Informationen zu deiner Person abfragen. Wie lautet dein Vorname?",
                 "editIntroduction": "Bitte nenne mir deinen geänderten Vornamen.",
                 "goToNextStageAfterEdit": false,
                 "regexCheck": true,
@@ -175,7 +175,7 @@
                 "editIntroduction": "Bitte nenne mir die geänderte Straße.",
                 "goToNextStageAfterEdit": true,
                 "regexCheck": true,
-                "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ.]{1,50}(?:[-.'][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$",
+                "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.' ][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$",
                 "invalidInputResponses": [
                     "Das ist kein gülitger Straßenname. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
                     "Dieser Straßenname existiert nicht. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden."
@@ -317,7 +317,7 @@
             },
             {
                 "name": "endDriverRegistration",
-                "introduction": "Vielen Dank für die Bereitstellung deiner Daten! Ich habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Vorname:{{/t}}{{firstName}}{{/n}}Nachname:{{/t}}{{lastName}}{{/n}}Geburtsdatum:{{/t}}{{birthdate}}{{/n}}E-Mail:{{/t}}{{email}}{{/n}}Telefonnummer:{{/t}}{{phone}}{{/n}}Straße:{{/t}}{{street}}{{/n}}Hausnummer:{{/t}}{{houseNumber}}{{/n}}Postleitzahl:{{/t}}{{zip}}{{/n}}Stadt:{{/t}}{{city}}{{/n}}Bundesland:{{/t}}{{state}}{{/n}}Land:{{/t}}{{country}}{{/n}}Rennlizenz-ID:{{/t}}{{licenseID}}",
+                "introduction": "Vielen Dank für die Bereitstellung deiner Daten! Ich habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Vorname:{{firstName}}{{/n}}Nachname:{{lastName}}{{/n}}Geburtsdatum:{{birthdate}}{{/n}}E-Mail:{{email}}{{/n}}Telefonnummer:{{phone}}{{/n}}Straße:{{street}}{{/n}}Hausnummer:{{houseNumber}}{{/n}}Postleitzahl:{{zip}}{{/n}}Stadt:{{city}}{{/n}}Region:{{state}}{{/n}}Land:{{country}}{{/n}}Rennlizenz-ID:{{licenseID}}",
                 "regexCheck": false,
                 "validInputs": {
                     "processRegistration": [
@@ -328,7 +328,8 @@
                         "Alles korrekt",
                         "Korrekt",
                         "Stimmt",
-                        "Stimmt so"
+                        "Stimmt so",
+                        "Passt"
                     ],
                     "editInput": [
                         "Vorname",
@@ -341,7 +342,7 @@
                         "Postleitzahl",
                         "Stadt",
                         "Bundesland",
-                        "Land",
+                        "Region",
                         "Rennlizenz-ID",
                         "Passwort"
                     ]
@@ -369,7 +370,7 @@
                     "Start",
                     "Okay",
                     "Yes",
-                    "Y"
+                    "Passt"
                 ],
                 "invalidInputResponses": [
                     "Alle weiteren Schritte erfährst du sobald wir begonnen haben. Bitte gib mir Bescheid, wenn du bereit bist.",
@@ -513,7 +514,7 @@
             },
             {
                 "name": "endVehicleRegistration",
-                "introduction": "Super, ich habe jeztt alle Informationen die ich benötige. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{/t}}{{vehicleBrand}}{{/n}}Modell:{{/t}}{{vehicleModel}}{{/n}}Startnummer:{{/t}}{{startNumber}}{{/n}}Teamname:{{/t}}{{teamName}}",
+                "introduction": "Super, ich habe jetzt alle Informationen die ich benötige. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{vehicleBrand}}{{/n}}Modell:{{vehicleModel}}{{/n}}Startnummer:{{startNumber}}{{/n}}Teamname:{{teamName}}",
                 "regexCheck": false,
                 "validInputs": {
                     "processRegistration": [
@@ -524,7 +525,8 @@
                         "Alles korrekt",
                         "Korrekt",
                         "Stimmt",
-                        "Stimmt so"
+                        "Stimmt so",
+                        "Passt"
                     ],
                     "editInput": [
                         "Hersteller",

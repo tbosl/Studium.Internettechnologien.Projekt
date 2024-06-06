@@ -67,6 +67,9 @@ class bot {
         if (message.type === 'utf8') {
           var data = JSON.parse(message.utf8Data)
           console.log('Received: ' + data.msg + ' ' + data.name)
+          if (data.type == 'join') {
+            onClientJoins();
+          }
         }
       })
 
@@ -82,6 +85,16 @@ class bot {
           console.log('Send: ' + msg)
           connection.sendUTF(msg)
         }
+      }
+
+      /**
+       * Send a welcome message to the user once he joins the chat.
+       */
+      function onClientJoins() {
+        var inhalt = content.stages.welcomeWorkflow[0].introduction;
+        var msg = '{"type": "msg", "name": "' + "MegaBot" + '", "msg":"' + inhalt + '","sender":"MegaBot" }';
+        console.log('Send: ' + msg)
+        connection.sendUTF(msg);
       }
       joinGesp()
     })

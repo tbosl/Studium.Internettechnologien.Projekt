@@ -18,6 +18,11 @@
   line-height: 2;
 }
 
+#info-text a {
+  color: white;
+  text-decoration: underline;
+}
+
 #info-container {
   margin-top: 50px;
   border-width: 2px;

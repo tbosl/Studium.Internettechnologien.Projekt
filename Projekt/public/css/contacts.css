@@ -41,6 +41,13 @@
   text-align: center;
 }
 
+@media (max-width: 800px) {
+  #links-and-flyer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 #flyer-imola {
   margin-top: 50px;
   border-width: 2px;
