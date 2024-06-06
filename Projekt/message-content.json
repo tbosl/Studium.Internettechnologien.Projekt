@@ -13,6 +13,25 @@
             "Der Chat wurde gestoppt. Wenn du erneut Unterstützung benötigst, helfe ich dir jederzeit gerne weiter."
         ]
     },
+    "editInputToInternalNameMapping": {
+        "Vorname": "firstName",
+        "Nachname": "lastName",
+        "Geburtsdatum": "birthdate",
+        "E-Mail": "email",
+        "Telefonnummer": "phone",
+        "Straße": "street",
+        "Hausnummer": "houseNumber",
+        "Postleitzahl": "zip",
+        "Stadt": "city",
+        "Bundesland": "state",
+        "Land": "country",
+        "Rennlizenz-ID": "licenseID",
+        "Hersteller": "vehicleBrand",
+        "Modell": "vehicleModel",
+        "Startnummer": "startNumber",
+        "Teamname": "teamName",
+        "Passwort": "password"
+    },
     "stages": {
         "welcomeWorkflow": [
             {
@@ -62,6 +81,8 @@
                 "name": "enterEmail",
                 "dataKey": "email",
                 "introduction": "Zunächst benötige ich deine E-Mail-Adresse. Wie lautet diese?",
+                "editIntroduction": "Bitte nenne mir die geänderte E-Mail-Adresse.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
                 "invalidInputResponses": [
@@ -73,6 +94,8 @@
                 "name": "enterPassword",
                 "dataKey": "password",
                 "introduction": "Damit du dich später mit deinem Account einloggen kannst benötigen wir noch ein Passwort. Bitte gib mir ein Passwort.",
+                "editIntroduction": "Bitte nenne mir das geänderte Passwort.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-zäöüÄÖÜß\\d@$!%*?&]{8,20}$",
                 "invalidInputResponses": [
@@ -84,6 +107,8 @@
                 "name": "enterFirstName",
                 "dataKey": "firstName",
                 "introduction": "Ich werde nun einige Informationen zu deine Person abfragen. Wie lautet dein Vorname?",
+                "editIntroduction": "Bitte nenne mir deinen geänderten Vornamen.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,50}$",
                 "invalidInputResponses": [
@@ -95,6 +120,8 @@
                 "name": "enterLastName",
                 "dataKey": "lastName",
                 "introduction": "Alles klar {{firstName}}. Wie lautet dein Nachname?",
+                "editIntroduction": "Bitte nenne mir deinen geänderten Nachnamen.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,50}$",
                 "invalidInputResponses": [
@@ -106,6 +133,8 @@
                 "name": "enterAbbreviation",
                 "dataKey": "abbreviation",
                 "introduction": "Welches Kürzel möchtest du auf der Rennstrecke verwenden? (Maximal 3 Zeichen)",
+                "editIntroduction": "Bitte nenne mir das geänderte Kürzel.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-z]{1,3}$",
                 "invalidInputResponses": [
@@ -117,6 +146,8 @@
                 "name": "enterBirthdate",
                 "dataKey": "birthdate",
                 "introduction": "Wann hast du Geburtstag? (TT.MM.JJJJ)",
+                "editIntroduction": "Bitte nenne mir dein geändertes Geburtsdatum.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[0-2])\\.\\d{4}$",
                 "invalidInputResponses": [
@@ -128,6 +159,8 @@
                 "name": "enterPhone",
                 "dataKey": "phone",
                 "introduction": "Nun benötige ich noch deine Telefonnummer. Wie lautet diese?",
+                "editIntroduction": "Bitte nenne mir die geänderte Telefonnummer.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^(\\+49|0)\\d+$",
                 "invalidInputResponses": [
@@ -139,6 +172,8 @@
                 "name": "enterStreet",
                 "dataKey": "street",
                 "introduction": "Jetzt benötige ich noch deine Adresse. In welcher Straße wohnst du?",
+                "editIntroduction": "Bitte nenne mir die geänderte Straße.",
+                "goToNextStageAfterEdit": true,
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ.]{1,50}(?:[-.'][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$",
                 "invalidInputResponses": [
@@ -150,6 +185,8 @@
                 "name": "enterHouseNumber",
                 "dataKey": "houseNumber",
                 "introduction": "In welcher Hausnummer wohnst du?",
+                "editIntroduction": "Bitte nenne mir die geänderte Hausnummer.",
+                "goToNextStageAfterEdit": true,
                 "regexCheck": true,
                 "validInputRegex": "^([1-9]\\d{0,2}|1000)([a-f])?$",
                 "invalidInputResponses": [
@@ -161,6 +198,8 @@
                 "name": "enterCity",
                 "dataKey": "city",
                 "introduction": "Aus welcher Stadt kommst du?",
+                "editIntroduction": "Bitte nenne mir die geänderte Stadt.",
+                "goToNextStageAfterEdit": true,
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{2,50}(?:[-][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$",
                 "invalidInputResponses": [
@@ -172,6 +211,8 @@
                 "name": "enterZip",
                 "dataKey": "zip",
                 "introduction": "Wie lautet die Postleitzahl deines Wohnortes?",
+                "editIntroduction": "Bitte nenne mir die geänderte Postleitzahl.",
+                "goToNextStageAfterEdit": true,
                 "regexCheck": true,
                 "validInputRegex": "^\\d{5}$",
                 "invalidInputResponses": [
@@ -183,6 +224,8 @@
                 "name": "enterState",
                 "dataKey": "state",
                 "introduction": "In welchem Bundesland oder in welcher Region wohnst du?",
+                "editIntroduction": "Bitte nenne mir das geänderte Bundesland oder die geänderte Region.",
+                "goToNextStageAfterEdit": true,
                 "regexCheck": false,
                 "validInputs": [
                     "Bayern",
@@ -246,6 +289,8 @@
                 "name": "enterCountry",
                 "dataKey": "country",
                 "introduction": "Aus welchem Land kommst du?",
+                "editIntroduction": "Bitte nenne mir das geänderte Land.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": false,
                 "validInputs": [
                     "Deutschland",
@@ -261,6 +306,8 @@
                 "name": "enterLicenseID",
                 "dataKey": "licenseID",
                 "introduction": "Wie lautet die ID deiner Rennlizenz? (Die ID startet mit 3 Buchstaben und endet mit 5 Zahlen)",
+                "editIntroduction": "Bitte nenne mir die geänderte Rennlizenz-ID.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-z]{3}\\d{5}$",
                 "invalidInputResponses": [
@@ -295,7 +342,8 @@
                         "Stadt",
                         "Bundesland",
                         "Land",
-                        "Rennlizenz-ID"
+                        "Rennlizenz-ID",
+                        "Passwort"
                     ]
                 },
                 "invalidInputResponses": [
@@ -332,6 +380,8 @@
                 "name": "enterVehicleBrand",
                 "dataKey": "vehicleBrand",
                 "introduction": "Zunächst muss ich wissen, von welchem Hersteller dein Fahrzeug ist. Bitte nenne mir den Namen des Herstellers.",
+                "editIntroduction": "Bitte nenne mir den geänderten Hersteller.",
+                "goToNextStageAfterEdit": true,
                 "regexCheck": false,
                 "validInputs": [
                     "Audi",
@@ -357,6 +407,8 @@
                 "name": "enterVehicleModel",
                 "dataKey": "vehicleModel",
                 "introduction": "Super, ein {{vehicleBrand}} also! Nachfolgend findest du eine Liste aller zugelassenen Modelle. Welches möchtest du fahren?{{/n}}{{/n}}{{brandModels}}",
+                "editIntroduction": "Bitte nenne mir das geänderte Modell. Hier sind noch einmal alle verfügbaren Modelle:{{/n}}{{brandModels}}",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": false,
                 "validInputs": {
                     "Audi": [
@@ -424,6 +476,8 @@
                 "name": "enterStartNumber",
                 "dataKey": "startNumber",
                 "introduction": "Das hat geklappt! Welche Startnummer möchtest du verwenden? (1-999)",
+                "editIntroduction": "Bitte nenne mir die geänderte Startnummer.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^[1-9]\\d{0,2}$",
                 "invalidInputResponses": [
@@ -435,8 +489,10 @@
                 "name": "enterTeamName",
                 "dataKey": "teamName",
                 "introduction": "Nun möchte ich noch wissen, unter welchem Teamnamen das Fahrzeug aufgeführt werden soll. Wie lautet der Teamname?",
+                "editIntroduction": "Bitte nenne mir den geänderten Teamnamen.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
-                "validInputRegex": "^[a-zA-Z0-9@$&!? \\-öäü]{5,60}$",
+                "validInputRegex": "^[a-zA-Z0-9@$&!? \\-ÄÖÜßöäü]{5,60}$",
                 "invalidInputResponses": [
                     "Dieser Name ist leider nicht möglich. Achte darauf, dass der Teamname 5-60 Zeichen lang ist.",
                     "Ich kann dir diesen Teamnamen leider nicht zuweisen. Bitte gib einen Teamnamen an, der 5-60 Zeichen lang ist."
@@ -446,6 +502,8 @@
                 "name": "enterVehiclePassword",
                 "dataKey": "vehiclePassword",
                 "introduction": "Nun musst du noch ein Passwort für das Fahrzeug festlegen, damit von dir gewünschte Fahrer dem Auto beitreten können.",
+                "editIntroduction": "Bitte nenne mir das geänderte Passwort.",
+                "goToNextStageAfterEdit": false,
                 "regexCheck": true,
                 "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-zäöüÄÖÜß\\d@$!%*?&]{8,20}$",
                 "invalidInputResponses": [
@@ -455,7 +513,7 @@
             },
             {
                 "name": "endVehicleRegistration",
-                "introduction": "Super, ich habe jeztt alle Informationen die ich benötige.. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{/t}}{{vehicleBrand}}{{/n}}Modell:{{/t}}{{vehicleModel}}{{/n}}Startnummer:{{/t}}{{startNumber}}{{/n}}Teamname:{{/t}}{{teamName}}",
+                "introduction": "Super, ich habe jeztt alle Informationen die ich benötige. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass es mich wissen. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{/t}}{{vehicleBrand}}{{/n}}Modell:{{/t}}{{vehicleModel}}{{/n}}Startnummer:{{/t}}{{startNumber}}{{/n}}Teamname:{{/t}}{{teamName}}",
                 "regexCheck": false,
                 "validInputs": {
                     "processRegistration": [
@@ -472,7 +530,8 @@
                         "Hersteller",
                         "Modell",
                         "Startnummer",
-                        "Teamname"
+                        "Teamname",
+                        "Passwort"
                     ]
                 },
                 "invalidInputResponses": [

@@ -17,9 +17,6 @@ class bot {
    */
   constructor() {
     this.name = 'MegaBot';
-    this.parentStage = content.stages.welcomeWorkflow;
-    this.stageIndex = 0;
-    this.stage = this.parentStage[this.stageIndex];
     this.sessionData = {};
     this.dict = []
     this.dict['suche'] = 'Wenn sie etwas suchen sind Sie hier falsch es geht um Drogen'
@@ -169,7 +166,6 @@ class bot {
       this.getUserInformation(sender)[this.getStage(sender).dataKey] = proccessedMessage;
     }
     this.determineNextStage(msg, sender);
-    this.sendBotMessage(this.exchangePlaceholdersForAcutalValues(this.getStage(sender).introduction, sender), sender);
   }
 
   checkForCancel(msg, sender) {
@@ -190,16 +186,13 @@ class bot {
   }
 
   setStateToWelcomeWorkflow(sender) {
-    this.parentStage = content.stages.welcomeWorkflow;
-    this.stageIndex = 0;
-    this.stage = this.parentStage[this.stageIndex];
     this.sessionData[sender] = {};
 
-
-    this.sessionData[sender]["parentStage"] = content.stages.welcomeWorkflow;
-    this.sessionData[sender]["stageIndex"] = 0;
-    this.sessionData[sender]["stage"] = this.getParentStage(sender)[this.getStageIndex(sender)];
-    this.sessionData[sender]["userInformation"] = {};
+    this.setParentStage(sender, content.stages.welcomeWorkflow);
+    this.setStageIndex(sender, 0);
+    this.setStage(sender, this.getParentStage(sender)[this.getStageIndex(sender)]);
+    this.setUserInformation(sender, {});
+    this.setEditing(sender, false);
   }
 
   checkRegex(msg, sender) {
@@ -228,11 +221,13 @@ class bot {
   }
 
   sendRandomInvalidInputMessage(sender) {
-    var randomIndex = Math.floor(Math.random() * this.getStage(sender).invalidInputResponses.length);
-    this.sendBotMessage(this.getStage(sender).invalidInputResponses[randomIndex], sender);
+    let stage = this.getStage(sender);
+    var randomIndex = Math.floor(Math.random() * stage.invalidInputResponses.length);
+    this.sendBotMessage(stage.invalidInputResponses[randomIndex], sender);
   }
 
   sendBotMessage(content, sender) {
+    content = this.exchangePlaceholdersForAcutalValues(content, sender);
     var msg = '{"type": "msg", "name":"' + this.name + '", "msg":"' + content + '","sender":"' + sender + '"}'
     console.log('Send: ' + msg)
     this.client.con.sendUTF(msg)
@@ -263,23 +258,77 @@ class bot {
   }
 
   determineNextStage(msg, sender) {
-    if (this.getStage(sender).name == "welcome") { // determine if the user want to register a driver or a vehicle
-      if (this.findNameOfListWithMatch(msg, this.getStage(sender).validInputs) == "registerDriver") {
+    let stage = this.getStage(sender);
+    let stageIndex = this.getStageIndex(sender);
+    let parentStage = this.getParentStage(sender);
+    if (this.isEditing(sender)) {
+      if (this.getStage(sender).goToNextStageAfterEdit) {
+        this.setStageIndex(sender, stageIndex + 1);
+        this.setStage(sender, parentStage[stageIndex + 1]);
+      } else {
+        this.setEditing(sender, false);
+        this.moveToRegistrationWorkflowOverview(sender);
+      }
+      this.sendBotMessage(this.getStage(sender).introduction, sender);
+      return;
+    }
+
+    if (stage.name == "welcome") { // determine if the user want to register a driver or a vehicle
+      if (this.findNameOfListWithMatch(msg, stage.validInputs) == "registerDriver") {
         this.setParentStage(sender, content.stages.driverRegistrationWorkflow);
       } else {
         this.setParentStage(sender, content.stages.vehicleRegistrationWorkflow);
       }
+      parentStage = this.getParentStage(sender);
       this.setStageIndex(sender, 0);
-      this.setStage(sender, this.getParentStage(sender)[this.getStageIndex(sender)]);
+      this.setStage(sender, parentStage[stageIndex]);
+      this.sendBotMessage(this.getStage(sender).introduction, sender);
     } else {
-      if (this.getStageIndex(sender) < this.getParentStage(sender).length - 1) { // check if there are more stages in the current parent stage
-        this.setStageIndex(sender, this.getStageIndex(sender) + 1);
-        this.setStage(sender, this.getParentStage(sender)[this.getStageIndex(sender)]);
-      } else { // end of the current parent stage is reached.
+      if (stage.name == "endDriverRegistration" || stage.name == "endVehicleRegistration") {
+        let desiredValueToEdit = this.determineValueToEdit(msg, sender);
+        if (desiredValueToEdit != "") {
+          let stageIndexToEdit = this.determineStageIndexToEdit(sender, desiredValueToEdit);
+          this.setStageIndex(sender, stageIndexToEdit);
+          this.setStage(sender, parentStage[stageIndexToEdit]);
+          this.sendBotMessage(this.getStage(sender).editIntroduction, sender);
+          this.setEditing(sender, true);
+          return;
+        }
+      }
+      this.setStageIndex(sender, stageIndex + 1);
+      stageIndex = this.getStageIndex(sender); // update local stageIndex due to the change before.
+      this.setStage(sender, parentStage[stageIndex]);
+      this.sendBotMessage(this.getStage(sender).introduction, sender);
+      // check if there are more stages in the current parent stage. If the next case is the last,
+      // it will be handeled right away, since no input is required, it just ends the current conversation.
+      if (this.getStageIndex(sender) > parentStage.length - 2) {
         this.setStateToWelcomeWorkflow(sender);
       }
     }
   }
+
+  determineValueToEdit(msg, sender) {
+    let validInputs = this.determineValidInput(sender);
+    for (let str of validInputs) {
+      if (this.getStage(sender).validInputs.editInput.includes(str) && msg.toLowerCase().includes(str.toLowerCase())) {
+        return content.editInputToInternalNameMapping[str]
+      }
+    }
+    return "";
+  }
+
+  determineStageIndexToEdit(sender, desiredValueToEdit) {
+    let parentStage = this.getParentStage(sender);
+    let stageIndexToEdit = 0;
+    for (let i = 0; i < parentStage.length; i++) {
+      if (parentStage[i].dataKey == desiredValueToEdit) {
+        stageIndexToEdit = i;
+        break;
+      }
+    }
+    return stageIndexToEdit;
+  }
+
 
   findNameOfListWithMatch(msg, validInputs) {
     let nameOfListWithMatch = this.checkListForMatch(msg, validInputs.registerDriver, "registerDriver");
@@ -304,7 +353,7 @@ class bot {
     let dataset = this.getUserInformation(sender);
     for (let key in dataset) {
       if (content.includes("{{" + key + "}}")) {
-        content = content.replace("{{" + key + "}}", dataset[key]);
+        content = content.replace("{{" + key + "}}", "{{/n}}" + dataset[key] + "{{/n}}{{/n}}");
       }
     }
     if (content.includes("{{brandModels}}")) {
@@ -312,6 +361,11 @@ class bot {
       content = content.replace("{{brandModels}}", " - " + this.getStage(sender).validInputs[manufacturer].join("{{/n}} - "));
     }
     return content;
+  }
+
+  moveToRegistrationWorkflowOverview(sender) {
+    this.setStageIndex(sender, this.getParentStage(sender).length - 2);
+    this.setStage(sender, this.getParentStage(sender)[this.getStageIndex(sender)]);
   }
 
   getStage(sender) {
@@ -344,6 +398,13 @@ class bot {
 
   setUserInformation(sender, userInformation) {
     this.sessionData[sender]["userInformation"] = userInformation;
+  }
+
+  isEditing(sender) {
+    return this.sessionData[sender]["editing"];
+  }
+  setEditing(sender, editing) {
+    this.sessionData[sender]["editing"] = editing;
   }
 }
 module.exports = bot
