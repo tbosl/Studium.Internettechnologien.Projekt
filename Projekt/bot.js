@@ -310,7 +310,7 @@ class bot {
   determineValueToEdit(msg, sender) {
     let validInputs = this.determineValidInput(sender);
     for (let str of validInputs) {
-      if (this.getStage(sender).validInputs.editInput.includes(str) && msg.toLowerCase().includes(str.toLowerCase())) {
+      if (this.getStage(sender).validInputs.editInput.includes(str) && (msg.toLowerCase().includes(str.toLowerCase()) || str.toLowerCase().includes(msg))) {
         return content.editInputToInternalNameMapping[str]
       }
     }
@@ -352,8 +352,9 @@ class bot {
   exchangePlaceholdersForAcutalValues(content, sender) {
     let dataset = this.getUserInformation(sender);
     for (let key in dataset) {
+      let optionalLinebreak = this.getStage(sender).name == "endDriverRegistration" || this.getStage(sender).name == "endVehicleRegistration" ? "{{/n}}" : "";
       if (content.includes("{{" + key + "}}")) {
-        content = content.replace("{{" + key + "}}", "{{/n}}" + dataset[key] + "{{/n}}{{/n}}");
+        content = content.replace("{{" + key + "}}", optionalLinebreak + "<b>" + dataset[key] + "</b>" + optionalLinebreak + optionalLinebreak);
       }
     }
     if (content.includes("{{brandModels}}")) {
