@@ -33,12 +33,12 @@ function loadNavigationBar() {
     $("header").html('<nav>'
         + '<ul>'
         + '<li>'
-        + '<a href="info.html">'
+        + '<a href="index.html">'
         + '<img id="logo" width="80vh" alt="Logo">'
         + '</a>'
         + '</li>'
         + '<li>'
-        + '<a class="links-to-other-pages" id="link-to-chat" href="index.html"></a>'
+        + '<a class="links-to-other-pages" id="link-to-chat" href="chat.html"></a>'
         + '</li>'
         + '<li>'
         + '<a class="links-to-other-pages" id="link-to-events" href="events.html"></a>'
@@ -56,6 +56,5 @@ function loadNavigationBar() {
  */
 function loadSharedContent(content) {
     $('title').text(content.title);
-    console.log(content.heading);
     $('#headline-container h1').text(content.heading);
 }

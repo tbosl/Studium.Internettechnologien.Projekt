@@ -8,11 +8,27 @@
     "contacts": {
         "title": "Kontakt",
         "heading": "Kontaktiere uns",
-        "usernames": {
-            "instagram": "secracing",
-            "twitch": "secracing",
-            "youtube": "SEC Racing",
-            "discord": "Discord Community"
+        "socials": {
+            "instagram": {
+                "username": "secracing",
+                "link": "https://www.instagram.com/secracing/",
+                "logo": "media/logos/instagram.png"
+            },
+            "twitch": {
+                "username": "secracing",
+                "link": "https://www.twitch.tv/secracing",
+                "logo": "media/logos/twitch.png"
+            },
+            "youtube": {
+                "username": "SEC Racing",
+                "link": "https://www.youtube.com/@secracing8149",
+                "logo": "media/logos/youtube.png"
+            },
+            "discord": {
+                "username": "Discord Community",
+                "link": "https://discord.gg/n3QkwFav94",
+                "logo": "media/logos/discord.svg"
+            }
         },
         "images": {
             "flyer1": {

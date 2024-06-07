@@ -1,0 +1,48 @@
+<html>
+
+<!-- The content of all empty tags (such as title) is loaded within shared.js and chat.js -->
+
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="media/SEC_Logo_kompakt_weiß.png" />
+  <link rel="stylesheet" href="css/header.css" type="text/css" />
+  <link rel="stylesheet" href="css/content.css" type="text/css" />
+  <link rel="stylesheet" href="css/chat.css" type="text/css" />
+  <script src="/js/jquery.js"></script>
+  <script src="/js/shared.js" defer></script>
+  <script src="js/chat.js" defer></script>
+</head>
+
+<body>
+  <div id="background">
+    <header>
+      <!-- Check shared.js for initalization of header content. It is outsourced to make the content reusable between all pages -->
+    </header>>
+    <div id="content">
+      <div id="headline-container">
+        <h1></h1>
+      </div>
+      <div id="info-container">
+        <p id="info-text">
+        </p>
+      </div>
+      <div id="chat-frame">
+        <div id="chat">
+          <div id="msgs"></div>
+          <form id="chatForm">
+            <div id="inputArea">
+              <input id="msg" type="text" />
+              <button id="sendBtn">
+                <image src="media/send.png" width="30px" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
