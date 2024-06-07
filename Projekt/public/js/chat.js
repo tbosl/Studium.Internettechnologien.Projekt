@@ -6,9 +6,9 @@ var user = '';
  * Load the content of the page based on the provided json data.
  * (Stored at project root: message-content.json)
  * 
- * @param {*} data The json data containing the content of the page. 
+ * @param {*} data The json data containing the content of the project. 
  */
-function loadContent(data) {
+function loadPageContent(data) {
     let content = data.chat;
     loadSharedContent(content);
     $('#info-text').html(content.infoText);
