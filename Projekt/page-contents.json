@@ -33,5 +33,12 @@
         "heading": "Chat",
         "infoText": "Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein neues Team erstellen.<br /> Lass uns einfach im Chat wissen, wie wir dir helfen können. Wir kümmern uns schnellst möglich um dein Anliegen!",
         "sendButtonSrc": "media/send.png"
+    },
+    "events": {
+        "title": "Events",
+        "heading": "Anstehende Veranstaltungen",
+        "infoText": " Wenn du dich bei einem Event anmelden willst nutze einfach unseren <a href=\"index.html\">Chat</a>!",
+        "calenderImageSrc": "media/Kalender_3.png",
+        "calenderImageAlt": "Kalender mit den Events des Simracing Endurance Cups."
     }
 }
