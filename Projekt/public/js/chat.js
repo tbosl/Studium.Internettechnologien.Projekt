@@ -3,6 +3,19 @@ const botName = "MegaBot";
 var user = '';
 
 /**
+ * Load the content of the page based on the provided json data.
+ * (Stored at project root: message-content.json)
+ * 
+ * @param {*} data The json data containing the content of the page. 
+ */
+function loadContent(data) {
+    let content = data.chat;
+    loadSharedContent(content);
+    $('#info-text').html(content.infoText);
+    $('#inputArea image').attr('src', content.sendButtonSrc);
+}
+
+/**
  * Generate a new random name for the user.
  * Open a new socket for the user and send a join message to the server.
  */

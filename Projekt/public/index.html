@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/content.css" type="text/css" />
   <link rel="stylesheet" href="css/chat.css" type="text/css" />
   <script src="/js/jquery.js"></script>
+  <script src="/js/shared.js" defer></script>
   <script src="js/chat.js" defer></script>
 </head>
 
@@ -18,43 +19,37 @@
         <ul>
           <li>
             <a href="info.html">
-              <img id="logo" src="media/logos/SEC_Logo_kompakt_weiß.png" width="80vh" alt="Logo" />
+              <img id="logo" width="80vh" alt="Logo" />
             </a>
           </li>
           <li>
-            <a class="links-to-other-pages" id="links-to-chat" href="index.html">Chat</a>
+            <a class="links-to-other-pages" id="links-to-chat" href="index.html"></a>
           </li>
           <li>
-            <a class="links-to-other-pages" href="events.html">Events</a>
+            <a class="links-to-other-pages" id="link-to-events" href="events.html"></a>
           </li>
           <li>
-            <a class="links-to-other-pages" href="contacts.html">Kontakt</a>
+            <a class="links-to-other-pages" id="link-to-contacts" href="contacts.html"></a>
           </li>
         </ul>
       </nav>
     </header>
     <div id="content">
       <div id="headline-container">
-        <h1>Chat</h1>
+        <h1></h1>
       </div>
       <div id="info-container">
         <p id="info-text">
-          Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich
-          registrieren und ein neues Team erstellen.<br />
-          Lass uns einfach im Chat wissen, wie wir dir helfen können.
-          Wir kümmern uns schnellst möglich um dein Anliegen!
         </p>
       </div>
       <div id="chat-frame">
         <div id="chat">
           <div id="msgs"></div>
-          <!-- <div id="users"></div> -->
           <form id="chatForm">
-            <!-- <label for="msg">u1:&nbsp;</label> -->
             <div id="inputArea">
               <input id="msg" type="text" />
               <button id="sendBtn">
-                <image src="media/send.png" width="30px" />
+                <image width="30px" />
               </button>
             </div>
           </form>
