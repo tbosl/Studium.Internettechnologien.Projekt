@@ -4,6 +4,7 @@
 }
 
 #video {
+  height: 40vw;
   margin-top: 50px;
   border-width: 2px;
   border-style: solid;
