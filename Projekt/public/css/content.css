@@ -28,17 +28,7 @@ h1 {
   overflow-wrap: break-word;
 }
 
-#headline-container {
-  margin-top: 5%;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #c80d0d;
-  border-radius: 40px;
-  background-color: rgba(51, 51, 51, 0.65);
-  padding: 5px;
-  color: white;
-}
-
+#headline-container,
 #info-container {
   margin-top: 50px;
   border-width: 2px;
@@ -46,8 +36,15 @@ h1 {
   border-color: #c80d0d;
   border-radius: 40px;
   background-color: rgba(51, 51, 51, 0.65);
-  padding: 25px;
   color: white;
+}
+
+#headline-container {
+  padding: 5px;
+}
+
+#info-container {
+  padding: 25px;
 }
 
 #info-text {
