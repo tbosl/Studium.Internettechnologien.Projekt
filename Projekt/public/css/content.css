@@ -5,7 +5,6 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 #background {
   margin: 0;
   background-image: url('../media/Background.png');
@@ -38,4 +37,28 @@ h1 {
   background-color: rgba(51, 51, 51, 0.65);
   padding: 5px;
   color: white;
+}
+
+#info-container {
+  margin-top: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #c80d0d;
+  border-radius: 40px;
+  background-color: rgba(51, 51, 51, 0.65);
+  padding: 25px;
+  color: white;
+}
+
+#info-text {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 2;
+  text-align: center;
+}
+
+#info-text a {
+  color: white;
+  text-decoration: underline;
 }

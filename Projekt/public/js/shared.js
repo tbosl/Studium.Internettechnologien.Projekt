@@ -12,7 +12,7 @@ fetch('/page-contents.json')
 
 function loadContentOfHeadAndBackground(data) {
     $("#background #logo").attr('src', data.header.iconSrc);
-    $("#links-to-chat").text(data.header.chat);
+    $("#link-to-chat").text(data.header.chat);
     $("#link-to-events").text(data.header.events);
     $("#link-to-contacts").text(data.header.contacts);
 }
