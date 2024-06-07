@@ -1,15 +1,13 @@
-/* Pakete die wir brauchen */
-
+// Required pages.
 var bot = require('./bot.js')
 var express = require('express')
 const path = require('path');
 var app = express()
 
-/* Nutzen einer statischen WebSeite
-*/
+// Use of a static page.
 app.use(express.static('public'))
 
-// Wir nutzen ein paar statische Ressourcen
+// Use of a few static resoureces.
 app.use('/css', express.static(__dirname + '/public/css'))
 app.use('/js', express.static(__dirname + '/public/js'))
 app.use('/images', express.static(__dirname + '/public/images'))
@@ -18,33 +16,31 @@ app.get('/page-contents.json', function (req, res) {
   res.sendFile(path.join(__dirname, '/page-contents.json'));
 });
 
-// Wir starten den Express server
+// Start the express server
 var webserver = app.listen(8081, function () {
   var address = webserver.address()
   console.log(address)
   console.log('Server started at http://localhost:8081')
 })
 
-// Das brauchen wir für unsere Websockets
+// Import packets for websockets.
 var WSS = require('websocket').server
 var http = require('http')
 
 var server = http.createServer()
 server.listen(8181)
 
-// Hier erstellen wir den Server
+// Create the websocket server for the chat communication.
 var wss = new WSS({
   httpServer: server,
   autoAcceptConnections: false
 })
 
-/* Wir erstellen einen Bot, der kann sich aber noch nicht mit 
-    dem Socket Server verbinden, da dieser noch nciht läuft
-*/
+// Creates a new bot. The bot can not connect to the socket server yet, as it is not running yet.
 var myBot = new bot()
 var connections = {}
 
-// Wenn Sich ein client Socket mit dem Server verbinden will kommt er hier an
+// If a client socket wants to connect to the server, it arrives here.
 wss.on('request', function (request) {
   var connection = request.accept('chat', request.origin)
 
@@ -60,14 +56,14 @@ wss.on('request', function (request) {
     var data = JSON.parse(message.utf8Data)
     var msg = 'leer'
 
-    // Variablen um später den letzten Satz und den Sender zu speichern
+    // Variables to save the last sentence and the sender.
     var uname
     var utype
     var umsg
 
     switch (data.type) {
       case 'join':
-        // Wenn der Typ join ist füge ich den Client einfach unserer Liste hinzu
+        // If the type is join, we add the client to our list.
         connections[data.name] = connection
         msg = '{"type": "join", "names": ["' + Object.keys(connections).join('","') + '"]}'
         if (myBot.connected === false) {
@@ -76,7 +72,7 @@ wss.on('request', function (request) {
 
         break
       case 'msg':
-        // Erstelle eine Nachricht in JSON mit Typ, Sender und Inhalt
+        // Create a message in JSON with type, sender and content
         msg = '{"type": "msg", "name":"' + name + '", "msg":"' + data.msg + '","sender":"' + data.sender + '"}'
         utype = 'msg'
         uname = name
@@ -84,14 +80,14 @@ wss.on('request', function (request) {
         break
     }
 
-    //Sende Daten an alle verbundenen Sockets
+    // Send data to all connected sockets.
     for (var key in connections) {
       if (connections[key] && connections[key].send) {
         connections[key].send(msg)
       }
     }
 
-    // Leite die Daten des Users an den Bot weiter, damit der antworten kann
+    // Redirect user data to the bot so it can respond.
     if (uname !== 'MegaBot' && utype === 'msg') {
       myBot.post(msg)
     }
