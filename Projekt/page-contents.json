@@ -1,0 +1,24 @@
+{
+    "header": {
+        "chat": "Chat",
+        "events": "Events",
+        "contacts": "Kontakt",
+        "iconSrc": "media/logos/SEC_Logo_kompakt_weiß.png"
+    },
+    "contacts": {
+        "title": "Kontakt",
+        "heading": "Kontaktiere uns",
+        "usernames": {
+            "instagram": "secracing",
+            "twitch": "secracing",
+            "youtube": "SEC Racing",
+            "discord": "Discord Community"
+        },
+        "images": {
+            "flyer1": {
+                "src": "media/Imola.png",
+                "alt": "Flyer for the 12 hours of Imola. The flyer shows a picture of the track and the event name."
+            }
+        }
+    }
+}

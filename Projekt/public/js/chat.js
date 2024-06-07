@@ -23,7 +23,6 @@ $('#sendBtn').on('click', function (e) {
  * Register the enter key on the input field to send the message.
  */
 $('#msg').on('keypress', function (e) {
-    console.log(e);
     if (e.which === 13) {
         e.preventDefault();
         sendMessage();
