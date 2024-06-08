@@ -52,8 +52,12 @@ wss.on('request', function (request) {
         name = key
       }
     }
-
-    var data = JSON.parse(message.utf8Data)
+    try {
+      var data = JSON.parse(message.utf8Data)
+    } catch (e) {
+      console.log('Error parsing JSON');
+      return;
+    }
     var msg = 'leer'
 
     // Variables to save the last sentence and the sender.

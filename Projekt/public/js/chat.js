@@ -29,6 +29,9 @@ socket.onopen = function () {
  */
 $('#sendBtn').on('click', function (e) {
     e.preventDefault();
+    if (!validateMessage()) {
+        return;
+    }
     sendMessage();
 });
 
@@ -37,6 +40,9 @@ $('#sendBtn').on('click', function (e) {
  */
 $('#msg').on('keypress', function (e) {
     if (e.which === 13) {
+        if (!validateMessage()) {
+            return;
+        }
         e.preventDefault();
         sendMessage();
     }
@@ -49,6 +55,25 @@ function sendMessage() {
     msg = $('#msg').val();
     socket.send('{"type": "msg", "msg": "' + msg + '","sender":"' + user + '"}');
     $('#msg').val('');
+}
+
+/**
+ * Checks if the message is not empty and if it does not contain the character '"' to prevent json parsing conflicts.
+ * @returns true if the message is valid, false otherwise.
+ */
+function validateMessage() {
+    if ($('#msg').val().length == 0) {
+        return false;
+    }
+    if ($('#msg').val().includes('\"')) {
+        $('#msg').css('border-style', 'solid');
+        $('#msg').css('border-color', 'red');
+        $('#msg').css('border-width', '2px');
+        return false;
+    }
+    $('#msg').css('border', 'none');
+    return true;
+
 }
 
 /**

@@ -98,9 +98,11 @@
   margin-top: 30px;
 }
 
-#msg {
+#msg,
+#msg:focus {
   margin-right: 10px;
   border: none;
+  outline: none;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
