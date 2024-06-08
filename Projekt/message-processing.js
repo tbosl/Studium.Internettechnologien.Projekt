@@ -38,11 +38,11 @@ class MessageProcessor {
         } else {
             let matches = this.countMatchesWithValidInputs(msg.toLowerCase(), sender);
             matchesCount = matches.length;
-            if (matchesCount == 1) {
+            if (matchesCount == 1 || (matchesCount > 1 && !this.sessionManager.getStage(sender).uniqueMatchRequired)) {
                 proccessedMessage = matches[0];
             }
         }
-        if (matchesCount != 1) {
+        if (matchesCount == 0 || (matchesCount > 1 && this.sessionManager.getStage(sender).uniqueMatchRequired)) {
             this.bot.sendRandomInvalidInputMessage(sender);
             return;
         }

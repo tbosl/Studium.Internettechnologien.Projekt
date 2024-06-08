@@ -16,6 +16,7 @@
     "editInputToInternalNameMapping": {
         "Vorname": "firstName",
         "Nachname": "lastName",
+        "Kürzel": "abbreviation",
         "Geburtsdatum": "birthdate",
         "E-Mail": "email",
         "Telefonnummer": "phone",
@@ -37,6 +38,7 @@
             {
                 "name": "welcome",
                 "introduction": "Willkommen im Chat der SEC. Du kannst hier ein Fahrerprofil anlegen, um an den SEC-Rennen teilzunehmen. Alternativ kannst du uns das Fahrzeug, mit welchem du teilnehmen möchstest mitteilen. Du kannst den Dialog jederzeit abbrechen, lass es mich einfach wissen. Bitte achte darauf Sondderzeichen wie Anführungszeichen zu vermeiden, da diese nicht gesendet werden können. In diesem Fall wird das Eingabefeld rot umrandet.",
+                "uniqueMatchRequired": true,
                 "regexCheck": false,
                 "validInputs": {
                     "registerDriver": [
@@ -61,6 +63,7 @@
             {
                 "name": "registerDriver",
                 "introduction": "Alles klar! Wir benötigen noch ein paar Informationen von dir, um dein Fahrerprofil zu erstellen. Bitte gib mir Bescheid, wenn du bereit bist.",
+                "uniqueMatchRequired": false,
                 "regexCheck": false,
                 "validInputs": [
                     "Ja",
@@ -97,7 +100,7 @@
                 "editIntroduction": "Bitte nenne mir das geänderte Passwort.",
                 "goToNextStageAfterEdit": false,
                 "regexCheck": true,
-                "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&§])[A-Za-zäöüÄÖÜß\\d@$!%*?&§]{8,20}$",
+                "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&§#])[A-Za-zäöüÄÖÜß\\d@$!%*?&§#]{8,20}$",
                 "invalidInputResponses": [
                     "Das Passwort entspricht unseren Richtlinien nicht. Bitte gib ein Passwort ein, welches 8-20 Zeichen lang ist und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält.",
                     "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
@@ -175,10 +178,11 @@
                 "editIntroduction": "Bitte nenne mir die geänderte Straße.",
                 "goToNextStageAfterEdit": true,
                 "regexCheck": true,
-                "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.' ][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$",
+                "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.' ][A-Za-zäöüßÄÖÜÀ-ÿ]+)*\\.$",
                 "invalidInputResponses": [
                     "Das ist kein gülitger Straßenname. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
-                    "Dieser Straßenname existiert nicht. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden."
+                    "Dieser Straßenname existiert nicht. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
+                    "Dieser Name ist nicht gültig. Achte darauf keine Hausnummer zu nennen, diese wird im nächsten Schritt abgefragt."
                 ]
             },
             {
@@ -224,6 +228,7 @@
                 "name": "enterState",
                 "dataKey": "state",
                 "introduction": "In welchem Bundesland oder in welcher Region wohnst du?",
+                "uniqueMatchRequired": true,
                 "editIntroduction": "Bitte nenne mir das geänderte Bundesland oder die geänderte Region.",
                 "goToNextStageAfterEdit": true,
                 "regexCheck": false,
@@ -289,6 +294,7 @@
                 "name": "enterCountry",
                 "dataKey": "country",
                 "introduction": "Aus welchem Land kommst du?",
+                "uniqueMatchRequired": true,
                 "editIntroduction": "Bitte nenne mir das geänderte Land.",
                 "goToNextStageAfterEdit": false,
                 "regexCheck": false,
@@ -317,7 +323,8 @@
             },
             {
                 "name": "driverRegistrationOverview",
-                "introduction": "Vielen Dank für die Bereitstellung deiner Daten! Ich habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass mich einfach wissen, welches Feld du ändern möchtest. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Vorname:{{firstName}}{{/n}}Nachname:{{lastName}}{{/n}}Geburtsdatum:{{birthdate}}{{/n}}E-Mail:{{email}}{{/n}}Telefonnummer:{{phone}}{{/n}}Straße:{{street}}{{/n}}Hausnummer:{{houseNumber}}{{/n}}Postleitzahl:{{zip}}{{/n}}Stadt:{{city}}{{/n}}Region:{{state}}{{/n}}Land:{{country}}{{/n}}Rennlizenz-ID:{{licenseID}}",
+                "introduction": "Vielen Dank für die Bereitstellung deiner Daten! Ich habe jetzt alle Informationen, die für die Registrierung relevant sind. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass mich einfach wissen, welches Feld du ändern möchtest. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Vorname:{{firstName}}{{/n}}Nachname:{{lastName}}{{/n}}Kürzel:{{abbreviation}}{{/n}}Geburtsdatum:{{birthdate}}{{/n}}E-Mail:{{email}}{{/n}}Telefonnummer:{{phone}}{{/n}}Straße:{{street}}{{/n}}Hausnummer:{{houseNumber}}{{/n}}Postleitzahl:{{zip}}{{/n}}Stadt:{{city}}{{/n}}Region:{{state}}{{/n}}Land:{{country}}{{/n}}Rennlizenz-ID:{{licenseID}}",
+                "uniqueMatchRequired": true,
                 "regexCheck": false,
                 "validInputs": {
                     "processRegistration": [
@@ -331,6 +338,7 @@
                     "editInput": [
                         "Vorname",
                         "Nachname",
+                        "Kürzel",
                         "Geburtsdatum",
                         "E-Mail",
                         "Telefonnummer",
@@ -358,6 +366,7 @@
             {
                 "name": "registerVehicle",
                 "introduction": "Alles klar! Lass uns gemeinsam dein Fahrzeug anmelden. Bitte gib mir Bescheid, wenn du bereit bist.",
+                "uniqueMatchRequired": false,
                 "regexCheck": false,
                 "validInputs": [
                     "Ja",
@@ -378,6 +387,7 @@
                 "name": "enterVehicleBrand",
                 "dataKey": "vehicleBrand",
                 "introduction": "Zunächst muss ich wissen, von welchem Hersteller dein Fahrzeug ist. Bitte nenne mir den Namen des Herstellers.",
+                "uniqueMatchRequired": true,
                 "editIntroduction": "Bitte nenne mir den geänderten Hersteller.",
                 "goToNextStageAfterEdit": true,
                 "regexCheck": false,
@@ -405,6 +415,7 @@
                 "name": "enterVehicleModel",
                 "dataKey": "vehicleModel",
                 "introduction": "Super, ein {{vehicleBrand}} also! Nachfolgend findest du eine Liste aller zugelassenen Modelle. Welches möchtest du fahren?{{/n}}{{/n}}{{brandModels}}",
+                "uniqueMatchRequired": true,
                 "editIntroduction": "Bitte nenne mir das geänderte Modell. Hier sind noch einmal alle verfügbaren Modelle:{{/n}}{{brandModels}}",
                 "goToNextStageAfterEdit": false,
                 "regexCheck": false,
@@ -503,7 +514,7 @@
                 "editIntroduction": "Bitte nenne mir das geänderte Passwort.",
                 "goToNextStageAfterEdit": false,
                 "regexCheck": true,
-                "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&§])[A-Za-zäöüÄÖÜß\\d@$!%*?&§]{8,20}$",
+                "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&§#])[A-Za-zäöüÄÖÜß\\d@$!%*?&§#]{8,20}$",
                 "invalidInputResponses": [
                     "Das Passwort entspricht unseren Richtlinien nicht. Bitte gib ein Passwort ein, welches 8-20 Zeichen lang ist und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält.",
                     "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
@@ -513,6 +524,7 @@
                 "name": "vehicleRegistrationOverview",
                 "introduction": "Super, ich habe jetzt alle Informationen die ich benötige. Nachfolgend findest du eine Auflistung deiner Informationen. Bitte stelle sicher, dass alle Informationen korrekt sind. Wenn du etwas ändern möchtest, lass mich einfach wissen, welches Feld du ändern möchtest. Ansonsten bestätige bitte die Richtigkeit deiner Daten.{{/n}}{{/n}}Hersteller:{{vehicleBrand}}{{/n}}Modell:{{vehicleModel}}{{/n}}Startnummer:{{startNumber}}{{/n}}Teamname:{{teamName}}",
                 "regexCheck": false,
+                "uniqueMatchRequired": true,
                 "validInputs": {
                     "processRegistration": [
                         "Ja",
