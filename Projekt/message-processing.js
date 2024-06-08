@@ -5,6 +5,7 @@ var content = require('./message-content.json');
 class MessageProcessor {
     /**
      * Creates a new message processor.
+     * 
      * @param {bot} bot The bot instance.
      * @param {SessionManager} sessionManager The session manager to be used.
      * @param {StageManager} stageManager The stage manager to be used.
@@ -17,6 +18,7 @@ class MessageProcessor {
 
     /**
      * Proccesses the message from the user.
+     * 
      * @param {str} msg The message content from the user.
      * @param {str} sender The sender of the message.
      */
@@ -53,9 +55,11 @@ class MessageProcessor {
     /**
      * Checks if the user send a cancelation message. 
      * If so, the bot sends a random cancelation response and sets the state to the welcome workflow.
+     * 
      * @param {str} msg The content of the message. 
      * @param {str} sender The user of the session.
-     * @returns 
+     * 
+     * @returns True if the message is a cancelation message, false otherwise.
      */
     checkForCancel(msg, sender) {
         let cancel = false;
@@ -66,7 +70,7 @@ class MessageProcessor {
             }
         }
         if (!cancel) {
-            return;
+            return false;
         }
         this.stageManager.setStateToWelcomeWorkflow(sender);
         let randomMessageIndex = Math.floor(Math.random() * content.cancelWorkflow.cancelResponses.length);
@@ -74,38 +78,52 @@ class MessageProcessor {
         return cancel;
     }
 
+    /**
+     * Checks if the message matches the regex of the current stage.
+     * 
+     * @param {str} msg Text message from the user. 
+     * @param {str} sender The user of the session.
+     * 
+     * @returns 1 if the message matches the regex, 0 otherwise.The numbers are required as the list version returns 
+     * the amount of matches and not true or false, so here we return 1 or 0 so symbolize one match or none.
+     */
     checkRegex(msg, sender) {
         var re = new RegExp(this.sessionManager.getStage(sender).validInputRegex);
         var result = re.test(msg);
         return result ? 1 : 0;
     }
 
+    /**
+     * Counts the amount of matches found in the valid inputs list of the current stage.
+     * @param {str} msg Text message from the user. 
+     * @param {str} sender The user of the session. 
+     * @returns The amoount of matches found in the valid inputs list.
+     */
     countMatchesWithValidInputs(msg, sender) {
         let matches = []
         let validInputs = this.determineValidInput(sender);
         for (let str of validInputs) {
-            if (this.sessionManager.getStage(sender).name != "enterVehicleModel") {
-                if (msg.includes(str.toLowerCase()) || str.toLowerCase().includes(msg)) {
-                    matches.push(str);
-                }
-            } else {
-                // TODO else probalby not needed
-                if (msg.includes(str.toLowerCase()) || str.toLowerCase().includes(msg)) {
-                    matches.push(str);
-                }
-
+            if (msg.includes(str.toLowerCase()) || str.toLowerCase().includes(msg)) {
+                matches.push(str);
             }
         }
         return matches;
     }
 
+    /**
+     * Provides a list of all valid inputs at the current stage.
+     * 
+     * @param {str} sender The user of the session. 
+     * 
+     * @returns The list of valid inputs. 
+     */
     determineValidInput(sender) {
         let stage = this.sessionManager.getStage(sender);
         var baseList = stage.validInputs;
         switch (stage.name) {
             case "welcome":
-            case "endDriverRegistration":
-            case "endVehicleRegistration":
+            case "driverRegistrationOverview":
+            case "vehicleRegistrationOverview":
                 return this.unionSubLists(baseList);
             case "enterVehicleModel":
                 let selectedBrandDataKey = this.sessionManager.getParentStage(sender)[this.sessionManager.getStageIndex(sender) - 1].dataKey;
@@ -115,6 +133,13 @@ class MessageProcessor {
         }
     }
 
+    /**
+     * Used when the valid inputs are divided into sublists.
+     * It unites the sublists into a single list.
+     * @param {*} baseList The list of lists to be united. 
+     * 
+     * @returns The united list.
+     */
     unionSubLists(baseList) {
         var result = []
         for (let k in baseList) {

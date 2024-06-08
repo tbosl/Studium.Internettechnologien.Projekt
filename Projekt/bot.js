@@ -135,7 +135,7 @@ class bot {
   exchangePlaceholdersForAcutalValues(content, sender) {
     let dataset = this.sessionManager.getUserInformation(sender);
     for (let key in dataset) {
-      let optionalLinebreak = this.sessionManager.getStage(sender).name == "endDriverRegistration" || this.sessionManager.getStage(sender).name == "endVehicleRegistration" ? "{{/n}}" : "";
+      let optionalLinebreak = this.sessionManager.getStage(sender).name == "driverRegistrationOverview" || this.sessionManager.getStage(sender).name == "vehicleRegistrationOverview" ? "{{/n}}" : "";
       if (content.includes("{{" + key + "}}")) {
         content = content.replace("{{" + key + "}}", optionalLinebreak + "<b>" + dataset[key] + "</b>" + optionalLinebreak + optionalLinebreak);
       }
