@@ -1,6 +1,7 @@
 var socket = new WebSocket('ws://127.0.0.1:8181/', 'chat');
 const botName = "MegaBot";
 var user = '';
+var invalidMessageSendAsLastMessage = false;
 
 /**
  * Load the content of the page based on the provided json data.
@@ -26,24 +27,34 @@ socket.onopen = function () {
 
 /**
  * Register the click event on the send button to send the message.
+ * If the message contains an invalid character, it will show a hint to the user.
  */
 $('#sendBtn').on('click', function (e) {
     e.preventDefault();
     if (!validateMessage()) {
+        if (!invalidMessageSendAsLastMessage) {
+            showInvalidMessageHintInChat();
+        }
         return;
     }
+    invalidMessageSendAsLastMessage = false;
     sendMessage();
 });
 
 /**
  * Register the enter key on the input field to send the message.
+ * If the message contains an invalid character, it will show a hint to the user.
  */
 $('#msg').on('keypress', function (e) {
     if (e.which === 13) {
+        e.preventDefault();
         if (!validateMessage()) {
+            if (!invalidMessageSendAsLastMessage) {
+                showInvalidMessageHintInChat();
+            }
             return;
         }
-        e.preventDefault();
+        invalidMessageSendAsLastMessage = false;
         sendMessage();
     }
 });
@@ -119,6 +130,18 @@ function prepareMessageContainer(msg, name) {
     var content = $('<div class="' + messageClassName + '">' + pUserName + insertLineBreaksForPlaceHolders(msg) +
         '</div>');
     return content;
+}
+
+/**
+ * Adds a hint to the chat container that the message contains invalid characters.
+ * 
+ * @returns The string representation of the HTML code for the div with the message and the name of the sender.
+ */
+function showInvalidMessageHintInChat() {
+    var msg = "Diese Nachricht kann nicht übertragen werden. Bitte entferen alle Anführungszeichen (\"), um fortzufahren";
+    var content = prepareMessageContainer(msg, botName);
+    $('#msgs').append(content);
+    invalidMessageSendAsLastMessage = true;
 }
 
 /**
