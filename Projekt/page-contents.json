@@ -47,7 +47,8 @@
     "chat": {
         "title": "Chat",
         "heading": "Chat",
-        "infoText": "Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein neues Team erstellen.<br /> Lass uns einfach im Chat wissen, wie wir dir helfen können. Wir kümmern uns schnellst möglich um dein Anliegen!"
+        "infoText": "Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein neues Team erstellen.<br /> Lass uns einfach im Chat wissen, wie wir dir helfen können. Wir kümmern uns schnellst möglich um dein Anliegen!",
+        "invalidMessageHint": "Diese Nachricht kann nicht übertragen werden. Bitte entferen alle Anführungszeichen (\"), um fortzufahren"
     },
     "events": {
         "title": "Events",

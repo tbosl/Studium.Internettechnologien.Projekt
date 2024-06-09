@@ -27,7 +27,7 @@ socket.onopen = function () {
 
 /**
  * Register the click event on the send button to send the message.
- * If the message contains an invalid character, it will show a hint to the user.
+ * If the message contains an invalid character or is empty, it will show a hint to the user.
  */
 $('#sendBtn').on('click', function (e) {
     e.preventDefault();
@@ -43,7 +43,7 @@ $('#sendBtn').on('click', function (e) {
 
 /**
  * Register the enter key on the input field to send the message.
- * If the message contains an invalid character, it will show a hint to the user.
+ * If the message contains an invalid character or is empty, it will show a hint to the user.
  */
 $('#msg').on('keypress', function (e) {
     if (e.which === 13) {
@@ -138,9 +138,17 @@ function prepareMessageContainer(msg, name) {
  * @returns The string representation of the HTML code for the div with the message and the name of the sender.
  */
 function showInvalidMessageHintInChat() {
-    var msg = "Diese Nachricht kann nicht übertragen werden. Bitte entferen alle Anführungszeichen (\"), um fortzufahren";
-    var content = prepareMessageContainer(msg, botName);
-    $('#msgs').append(content);
+    fetch('/page-contents.json')
+        .then(response => response.json())
+        .then(data => {
+            var msg = data.chat.invalidMessageHint;
+            var content = prepareMessageContainer(msg, botName);
+            $('#msgs').append(content);
+            scrollToBottom();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     invalidMessageSendAsLastMessage = true;
 }
 
