@@ -10,7 +10,10 @@
         "cancelResponses": [
             "Tut mir leid, dass ich dir nicht helfen konnte. Wenn du später Hilfe benötigst, stehe ich dir gerne zur Verfügung.",
             "Der Dialog wurde beendet. Wenn du später Hilfe benötigst, stehe ich dir gerne zur Verfügung.",
-            "Der Chat wurde gestoppt. Wenn du erneut Unterstützung benötigst, helfe ich dir jederzeit gerne weiter."
+            "Der Chat wurde gestoppt. Wenn du erneut Unterstützung benötigst, helfe ich dir jederzeit gerne weiter.",
+            "Es tut mir leid, dass ich dir nicht weiterhelfen konnte. Solltest du später Unterstützung brauchen, bin ich gerne für dich da.",
+            "Leider konnte ich dir nicht helfen. Falls du später Hilfe benötigst, stehe ich dir selbstverständlich zur Verfügung.",
+            "Entschuldige, dass ich dir nicht behilflich sein konnte. Bei Bedarf helfe ich dir gerne zu einem späteren Zeitpunkt weiter."
         ]
     },
     "editInputToInternalNameMapping": {
@@ -54,8 +57,11 @@
                 },
                 "invalidInputResponses": [
                     "Entschuldigung, zu diesem Thema kann ich dir nicht weiterhelfen. Wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest, helfe ich dir gerne weiter.",
-                    "Diese Eingabe verstehe ich nicht. Lass es mich gerne wissen, wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest.",
-                    "Das habe ich leider nicht verstanden. Wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest, helfe ich dir gerne weiter."
+                    "Diese Aussage verstehe ich nicht. Lass es mich gerne wissen, wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest.",
+                    "Das habe ich leider nicht verstanden. Wenn du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest, helfe ich dir gerne weiter.",
+                    "Tut mir leid, bei diesem Thema kann ich dir nicht weiterhelfen. Solltest du einen Fahrer registrieren oder ein Fahrzeug anmelden wollen, bin ich gerne für dich da.",
+                    "Leider kann ich dir bei diesem Anliegen nicht helfen. Lass es mich wissen, wenn du Unterstützung bei der Registrierung eines Fahrers oder der Anmeldung eines Fahrzeugs benötigst.",
+                    "Entschuldige, das habe ich nicht verstanden. Falls du einen Fahrer registrieren oder ein Fahrzeug anmelden möchtest, stehe ich dir gerne zur Verfügung."
                 ]
             }
         ],
@@ -77,7 +83,11 @@
                 ],
                 "invalidInputResponses": [
                     "Wenn du dir zunächst ein Bild über unseren Datenschutz machen willst, lies dir gerne unsere Datenschutzbestimmungen durch. Wenn du bereit bist, gib mir Bescheid.",
-                    "Wenn du bereit bist, gib mir Bescheid. Ich helfe dir gerne weiter."
+                    "Wenn du bereit bist, gib mir Bescheid. Ich helfe dir gerne weiter.",
+                    "Wenn du bereit bist, gib mir Bescheid. Ich helfe dir gerne weiter.",
+                    "Sag mir einfach Bescheid, wenn du bereit bist. Ich unterstütze dich gerne.",
+                    "Lass es mich wissen, sobald du bereit bist. Ich stehe dir gerne zur Verfügung.",
+                    "Gib mir Bescheid, wenn du soweit bist. Ich helfe dir gerne weiter."
                 ]
             },
             {
@@ -90,7 +100,10 @@
                 "validInputRegex": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
                 "invalidInputResponses": [
                     "Das ist leider keine gültige E-Mail-Adresse. Bitte versuche es erneut.",
-                    "Tut mir leid, aber das ist kein gültiges E-Mail-Format. Bitte nenne mir eine gültige E-Mail-Adresse."
+                    "Tut mir leid, aber das ist kein gültiges E-Mail-Format. Bitte nenne mir eine gültige E-Mail-Adresse.",
+                    "Diese E-Mail-Adresse ist ungültig. Bitte versuche es noch einmal.",
+                    "Entschuldigung, das Format der E-Mail-Adresse ist nicht korrekt. Bitte gib eine gültige E-Mail-Adresse ein.",
+                    "Das eingegebene E-Mail-Format ist nicht gültig. Versuche es bitte erneut mit einer korrekten E-Mail-Adresse."
                 ]
             },
             {
@@ -103,7 +116,10 @@
                 "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&§#])[A-Za-zäöüÄÖÜß\\d@$!%*?&§#]{8,20}$",
                 "invalidInputResponses": [
                     "Das Passwort entspricht unseren Richtlinien nicht. Bitte gib ein Passwort ein, welches 8-20 Zeichen lang ist und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält.",
-                    "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
+                    "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten.",
+                    "Dein Passwort erfüllt nicht die erforderlichen Kriterien. Es sollte 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl sowie ein Sonderzeichen enthalten.",
+                    "Das eingegebene Passwort ist nicht gültig. Es muss 8-20 Zeichen umfassen und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen beinhalten.",
+                    "Entschuldigung, dein Passwort entspricht nicht den Richtlinien. Es sollte zwischen 8 und 20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
                 ]
             },
             {
@@ -116,7 +132,10 @@
                 "validInputRegex": "^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,50}$",
                 "invalidInputResponses": [
                     "Das ist kein gültiger Vorname. Bitte gib deinen Vornamen an, achte darauf keine Sonderzeichen wie @$& etc. zu verwenden.",
-                    "Das habe ich leider nicht verstanden. Bitte beachte, dass dein Vorname keine Sonderzeichen enthalten darf."
+                    "Das habe ich leider nicht verstanden. Bitte beachte, dass dein Vorname keine Sonderzeichen enthalten darf.",
+                    "Der eingegebene Vorname ist ungültig. Bitte gib deinen Vornamen ohne Sonderzeichen wie @$& etc. ein.",
+                    "Entschuldigung, dieser Vorname ist nicht gültig. Bitte achte darauf, keine Sonderzeichen zu verwenden.",
+                    "Das ist kein zulässiger Vorname. Dein Vorname sollte keine Sonderzeichen enthalten."
                 ]
             },
             {
@@ -128,8 +147,11 @@
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-zÀ-ÖØ-öø-ÿ' -]{1,50}$",
                 "invalidInputResponses": [
-                    "Das ist kein gültiger Nachname. Bitte gib deinen Nachname an, achte darauf keine Sonderzeichen (@, $, &, etc.) zu verwenden.",
-                    "Das habe ich leider nicht verstanden. Bitte beachte, dass dein Nachname keine Sonderzeichen enthalten darf."
+                    "Das ist kein gültiger Nachname. Bitte gib deinen Nachnamen an, achte darauf keine Sonderzeichen (@, $, &, etc.) zu verwenden.",
+                    "Das habe ich leider nicht verstanden. Bitte beachte, dass dein Nachname keine Sonderzeichen enthalten darf.",
+                    "Der eingegebene Nachname ist ungültig. Bitte gib deinen Nachnamen ohne Sonderzeichen wie @, $, &, etc. ein.",
+                    "Entschuldigung, dieser Nachname ist nicht gültig. Bitte achte darauf, keine Sonderzeichen zu verwenden.",
+                    "Das ist kein zulässiger Nachname. Dein Nachname sollte keine Sonderzeichen enthalten."
                 ]
             },
             {
@@ -142,7 +164,10 @@
                 "validInputRegex": "^[A-Za-z]{1,3}$",
                 "invalidInputResponses": [
                     "Dieses Kürzel ist leider nicht möglich. Bitte achte darauf, dass es 1-3 Zeichen hat und lediglich Buchstaben enthält.",
-                    "Dieses Kürzel ist nicht erlaubt, da es nicht den Anforderungen entspricht. Bitte gib ein Kürzel mit 1-3 Buchstaben an."
+                    "Dieses Kürzel ist nicht erlaubt, da es nicht den Anforderungen entspricht. Bitte gib ein Kürzel mit 1-3 Buchstaben an.",
+                    "Das eingegebene Kürzel ist ungültig. Es sollte aus 1-3 Buchstaben bestehen.",
+                    "Entschuldigung, dieses Kürzel entspricht nicht den Richtlinien. Bitte verwende 1-3 Buchstaben.",
+                    "Dieses Kürzel ist nicht zulässig. Bitte achte darauf, dass es 1-3 Zeichen lang ist und nur Buchstaben enthält."
                 ]
             },
             {
@@ -154,8 +179,11 @@
                 "regexCheck": true,
                 "validInputRegex": "^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[0-2])\\.\\d{4}$",
                 "invalidInputResponses": [
-                    "Dieses Geburtsdatum kann ich nicht verarbeiten. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an. Achte auf fürhende Nullen und den Punkt zwischen den Zahlen.",
-                    "Das ist kein gültiges Geburtsdatum. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an. Achte auf fürhende Nullen und den Punkt zwischen den Zahlen."
+                    "Dieses Geburtsdatum kann ich nicht annehmen. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an. Achte auf führende Nullen und den Punkt zwischen den Zahlen.",
+                    "Das ist kein gültiges Geburtsdatum. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an. Achte auf führende Nullen und den Punkt zwischen den Zahlen.",
+                    "Entschuldigung, dieses Geburtsdatum kann ich nicht verwenden. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an, und achte auf führende Nullen und den Punkt zwischen den Zahlen.",
+                    "Das eingegebene Geburtsdatum ist ungültig. Bitte verwende das Format TT.MM.JJJJ und achte auf führende Nullen sowie den Punkt zwischen den Zahlen.",
+                    "Entschuldigung, aber das eingegebene Geburtsdatum ist nicht gültig. Bitte gib es im Format TT.MM.JJJJ an und achte auf führende Nullen sowie den Punkt zwischen den Zahlen."
                 ]
             },
             {
@@ -168,7 +196,10 @@
                 "validInputRegex": "^(\\+49|0)\\d+$",
                 "invalidInputResponses": [
                     "Das ist keine gültige Telefonnummer. Bitte gib eine gültige Telefonnummer an, die mit 0 oder +49 beginnt. Achte darauf keine Leerzeichen zu verwenden.",
-                    "Diese Nummer ist nicht gültig. Derzeit müssen alle Fahrer ein deutsche Telefonnummer haben, die mit 0 oder +49 beginnt. Beachte, dass keine Trennsymbole wie Leerzeichen verwendet werden dürfen."
+                    "Diese Nummer ist nicht gültig. Derzeit müssen alle Fahrer eine deutsche Telefonnummer haben, die mit 0 oder +49 beginnt. Beachte, dass keine Trennsymbole wie Leerzeichen verwendet werden dürfen.",
+                    "Entschuldigung, die angegebene Telefonnummer ist ungültig. Bitte gib eine deutsche Telefonnummer an, die mit 0 oder +49 beginnt, und achte darauf, keine Leerzeichen zu verwenden.",
+                    "Die eingegebene Telefonnummer ist nicht korrekt. Bitte verwende eine deutsche Telefonnummer, die mit 0 oder +49 beginnt, und achte darauf, keine Leerzeichen zu verwenden.",
+                    "Entschuldigung, die Nummer, die du eingegeben hast, ist ungültig. Alle Fahrer müssen eine deutsche Telefonnummer haben, die mit 0 oder +49 beginnt. Bitte beachte, dass keine Leerzeichen erlaubt sind."
                 ]
             },
             {
@@ -180,9 +211,11 @@
                 "regexCheck": true,
                 "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.' ][A-Za-zäöüßÄÖÜÀ-ÿ]+)*\\.$",
                 "invalidInputResponses": [
-                    "Das ist kein gülitger Straßenname. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
+                    "Das ist kein gültiger Straßenname. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
                     "Dieser Straßenname existiert nicht. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
-                    "Dieser Name ist nicht gültig. Achte darauf keine Hausnummer zu nennen, diese wird im nächsten Schritt abgefragt."
+                    "Dieser Name ist nicht gültig. Achte darauf keine Hausnummer zu nennen, diese wird im nächsten Schritt abgefragt.",
+                    "Entschuldigung, dieser Straßenname ist ungültig. Bitte gib einen gültigen Straßennamen an und vermeide Sonderzeichen wie @, $, & etc.",
+                    "Der eingegebene Straßenname ist nicht gültig. Bitte gib einen gültigen Namen an und achte darauf, keine Sonderzeichen zu verwenden."
                 ]
             },
             {
@@ -195,7 +228,10 @@
                 "validInputRegex": "^([1-9]\\d{0,2}|1000)([a-f])?$",
                 "invalidInputResponses": [
                     "Diese Hausnummer ist ungültig. Verwende bitte Nummern von 1 bis 1000. Du kannst auch Kleinbuchstaben von a bis f anhängen.",
-                    "Das ist leider keine valide Hausnummer. Bitte gib eine gültige Hausnummer an. Diese sollte zwischen 1 und 1000 liegen und kann optional mit einem Kleinbuchstaben von a bis f enden."
+                    "Das ist leider keine valide Hausnummer. Bitte gib eine gültige Hausnummer an. Diese sollte zwischen 1 und 1000 liegen und kann optional mit einem Kleinbuchstaben von a bis f enden.",
+                    "Entschuldigung, diese Hausnummer ist ungültig. Bitte gib eine Hausnummer zwischen 1 und 1000 ein und optional mit einem Kleinbuchstaben von a bis f enden.",
+                    "Die eingegebene Hausnummer ist nicht gültig. Bitte verwende eine Zahl zwischen 1 und 1000 und optional einen Kleinbuchstaben von a bis f am Schluss.",
+                    "Entschuldigung, aber diese Hausnummer ist nicht gültig. Bitte gib eine Hausnummer zwischen 1 und 1000 ein und optional einen Kleinbuchstaben von a bis f am Ende."
                 ]
             },
             {
@@ -208,7 +244,10 @@
                 "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{2,50}(?:[-][A-Za-zäöüßÄÖÜÀ-ÿ]+)*$",
                 "invalidInputResponses": [
                     "Diese Stadt existiert nicht. Bitte gib eine gültige Stadt an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
-                    "Dieser Städtename wäre mir neu. Bitte gib eine gültige Stadt an, vermeide Sonderzeichen wie @, $, & etc."
+                    "Dieser Städtename wäre mir neu. Bitte gib eine gültige Stadt an, vermeide Sonderzeichen wie @, $, & etc.",
+                    "Entschuldigung, die eingegebene Stadt existiert nicht. Bitte gib eine gültige Stadt an und achte darauf, keine Sonderzeichen wie @, $, & etc. zu verwenden.",
+                    "Die angegebene Stadt existiert nicht. Bitte gib eine gültige Stadt an und vermeide Sonderzeichen wie @, $, & etc.",
+                    "Entschuldigung, aber diese Stadt existiert nicht. Bitte gib eine gültige Stadt an und achte darauf, keine Sonderzeichen wie @, $, & etc. zu verwenden."
                 ]
             },
             {
@@ -221,7 +260,10 @@
                 "validInputRegex": "^\\d{5}$",
                 "invalidInputResponses": [
                     "Diese Postleitzahl ist nicht gültig. Bitte gib eine gültige Postleitzahl an, die aus 5 Zahlen besteht.",
-                    "Die Postleitzahl ist nicht korrekt. Deine Postleitzahl sollte aus genau 5 Zahlen bestehen."
+                    "Die Postleitzahl ist nicht korrekt. Deine Postleitzahl sollte aus genau 5 Zahlen bestehen.",
+                    "Entschuldigung, die angegebene Postleitzahl ist ungültig. Bitte gib eine gültige Postleitzahl an, die genau 5 Zahlen enthält.",
+                    "Die eingegebene Postleitzahl ist nicht gültig. Bitte verwende eine gültige Postleitzahl, die aus 5 Zahlen besteht.",
+                    "Entschuldigung, aber diese Postleitzahl ist nicht gültig. Bitte gib eine gültige Postleitzahl an, die aus genau 5 Zahlen besteht."
                 ]
             },
             {
@@ -287,7 +329,10 @@
                 ],
                 "invalidInputResponses": [
                     "Dieses Bundesland existiert nicht. Bitte achte darauf, dass das Bundesland in Deutschland, Österreich oder der Schweiz liegen muss.",
-                    "Dein genanntes Bundesland liegt leider in keinem Partnerland. Bitte nenne ein Bundesland aus der Deutschland, Österreich oder der Schweiz."
+                    "Dein genanntes Bundesland liegt leider in keinem Partnerland. Bitte nenne ein Bundesland aus Deutschland, Österreich oder der Schweiz.",
+                    "Entschuldigung, das angegebene Bundesland existiert nicht. Bitte wähle ein Bundesland aus Deutschland, Österreich oder der Schweiz.",
+                    "Das eingegebene Bundesland existiert nicht. Bitte gib ein Bundesland aus Deutschland, Österreich oder der Schweiz an.",
+                    "Entschuldigung, aber das genannte Bundesland ist ungültig. Bitte wähle ein Bundesland aus Deutschland, Österreich oder der Schweiz aus."
                 ]
             },
             {
@@ -304,8 +349,11 @@
                     "Schweiz"
                 ],
                 "invalidInputResponses": [
-                    "Die gülitgen Länder sind derzeit Deutschland, Österreich oder die Schweiz. Bitte stelle sicher eines dieser Länder zu anzugeben.",
-                    "Das genannte Land ist leider kein Parterland (Deutschland, Österreich oder der Schweiz). Bitte nenne eines dieser Länder."
+                    "Die möglichen Länder sind derzeit Deutschland, Österreich oder die Schweiz. Bitte stelle sicher eines dieser Länder zu anzugeben.",
+                    "Das genannte Land ist leider kein Parterland (Deutschland, Österreich oder der Schweiz). Bitte nenne eines dieser Länder.",
+                    "Entschuldigung, das angegebene Land ist nicht gültig. Bitte wähle Deutschland, Österreich oder die Schweiz als Land.",
+                    "Das genannte Land ist ungültig. Bitte gib eines der Partnerländer (Deutschland, Österreich oder die Schweiz) an.",
+                    "Entschuldigung, aber das genannte Land ist nicht gültig. Bitte wähle eines der Länder Deutschland, Österreich oder Schweiz aus."
                 ]
             },
             {
@@ -318,7 +366,10 @@
                 "validInputRegex": "^[A-Za-z]{3}\\d{5}$",
                 "invalidInputResponses": [
                     "Diese Lizenz-ID ist nicht gültig. Bitte gib deine gültige Lizenz-ID an, die mit 3 Buchstaben und 5 Zahlen endet.",
-                    "Die Lizenz-ID ist nicht korrekt. Deine Lizenz-ID sollte mit 3 Buchstaben starten und mit 5 Zahlen enden."
+                    "Die Lizenz-ID ist nicht korrekt. Deine Lizenz-ID sollte mit 3 Buchstaben starten und mit 5 Zahlen enden.",
+                    "Entschuldigung, die angegebene Lizenz-ID ist ungültig. Bitte gib eine Lizenz-ID an, die mit 3 Buchstaben und 5 Zahlen endet.",
+                    "Die eingegebene Lizenz-ID ist nicht gültig. Bitte verwende eine Lizenz-ID, die mit 3 Buchstaben beginnt und mit 5 Zahlen endet.",
+                    "Entschuldigung, aber diese Lizenz-ID ist ungültig. Bitte gib eine Lizenz-ID an, die mit 3 Buchstaben beginnt und mit 5 Zahlen endet."
                 ]
             },
             {
@@ -354,7 +405,10 @@
                 },
                 "invalidInputResponses": [
                     "Ich verstehe nicht genau, was du meinst. Bitte bestätige die Richtigkeit deiner Daten oder gib an, welche Information du ändern möchtest.",
-                    "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder gib an, welche Information du ändern möchtest."
+                    "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder gib an, welche Information du ändern möchtest.",
+                    "Entschuldigung, ich bin mir nicht sicher, was du meinst. Möchtest du bestätigen, dass deine Daten korrekt sind, oder möchtest du etwas ändern? Wenn ja was?",
+                    "Es tut mir leid, ich habe deine Nachricht nicht richtig verstanden. Möchtest du die Richtigkeit deiner Daten bestätigen oder eine Änderung vornehmen? Für eine Änderung nenne mir bitte das entsprechende Feld.",
+                    "Entschuldigung, ich bin mir unsicher, was du meinst. Möchtest du überprüfen, ob deine Daten korrekt sind, oder möchtest du etwas ändern? Wenn du etwas ändern möchtest, welches Feld möchtest du ändern?"
                 ]
             },
             {
@@ -379,8 +433,11 @@
                     "Passt"
                 ],
                 "invalidInputResponses": [
-                    "Alle weiteren Schritte erfährst du sobald wir begonnen haben. Bitte gib mir Bescheid, wenn du bereit bist.",
-                    "Wenn du bereit bist, gib mir Bescheid. Ich helfe dir gerne weiter."
+                    "Alle weiteren Schritte erfährst du, sobald wir begonnen haben. Bitte gib mir Bescheid, wenn du bereit bist.",
+                    "Wenn du bereit bist, gib mir Bescheid. Ich helfe dir gerne weiter.",
+                    "Sobald wir beginnen, werde ich dir alle weiteren Schritte mitteilen. Bitte lass mich wissen, wenn du bereit bist.",
+                    "Lass es mich wissen, wenn du bereit bist, und ich werde dir alle weiteren Schritte erklären.",
+                    "Die nächsten Schritte werden dir mitgeteilt, sobald wir starten. Gib mir einfach Bescheid, wenn du bereit bist."
                 ]
             },
             {
@@ -407,8 +464,11 @@
                     "Porsche"
                 ],
                 "invalidInputResponses": [
-                    "Tut mir leid, diese Marke ist in der aktuellen Saison nicht verfügbar. Bitte nenne wir eine andere Hersteller.",
-                    "Dieser Hersteller hat für diese Saison leider kein zugelassens Modell. Bitte nenne mir eine andere Marke."
+                    "Tut mir leid, diese Marke ist in der aktuellen Saison nicht verfügbar. Bitte nenne mir eine andere Hersteller.",
+                    "Dieser Hersteller hat für diese Saison leider kein zugelassens Modell. Bitte nenne mir eine andere Marke.",
+                    "Entschuldigung, aber diese Marke ist für die aktuelle Saison nicht verfügbar. Bitte gib einen anderen Hersteller an.",
+                    "Leider ist dieser Hersteller für die aktuelle Saison nicht zugelassen. Bitte nenne mir eine alternative Marke.",
+                    "Es tut mir leid, aber diese Marke ist in dieser Saison nicht verfügbar. Bitte wähle einen anderen Hersteller aus."
                 ]
             },
             {
@@ -478,7 +538,10 @@
                 },
                 "invalidInputResponses": [
                     "Dieses Modell ist nicht verfügbar. Bitte wähle ein anderes Modell aus.",
-                    "Ich kann leider nicht eindeutig anhand dieses Namens das Modell ermitteln. Bitte nenne mir einen eindeutigen Modellnamen aus."
+                    "Ich kann leider nicht eindeutig anhand dieses Namens das Modell ermitteln. Bitte nenne mir einen eindeutigen Modellnamen.",
+                    "Entschuldigung, dieses Modell ist derzeit nicht verfügbar. Bitte wähle ein anderes Modell aus.",
+                    "Leider kann ich anhand dieses Namens das Modell nicht identifizieren. Bitte gib einen eindeutigen Modellnamen an.",
+                    "Es tut mir leid, dieses Modell steht nicht zur Verfügung. Bitte wähle einen eindeutigen Modellnamen."
                 ]
             },
             {
@@ -491,7 +554,10 @@
                 "validInputRegex": "^[1-9]\\d{0,2}$",
                 "invalidInputResponses": [
                     "Diese Startnummer ist nicht gültig. Bitte gib eine Startnummer zwischen 1 und 999 an.",
-                    "Das ist leider keine verwendbare Startnummer. Bitte nenne mir eine Nummer zwischen 1 und 999."
+                    "Das ist leider keine verwendbare Startnummer. Bitte nenne mir eine Nummer zwischen 1 und 999.",
+                    "Entschuldigung, diese Startnummer ist ungültig. Bitte gib eine Nummer zwischen 1 und 999 an.",
+                    "Die eingegebene Startnummer ist nicht gültig. Bitte wähle eine Nummer zwischen 1 und 999.",
+                    "Es tut mir leid, aber diese Startnummer ist nicht gültig. Bitte gib eine Nummer zwischen 1 und 999 an."
                 ]
             },
             {
@@ -501,10 +567,13 @@
                 "editIntroduction": "Bitte nenne mir den geänderten Teamnamen.",
                 "goToNextStageAfterEdit": false,
                 "regexCheck": true,
-                "validInputRegex": "^[a-zA-Z0-9@$&!? \\-ÄÖÜßöäü]{5,60}$",
+                "validInputRegex": "^[a-zA-Z0-9@$&!?#§ \\-ÄÖÜßöäü]{5,60}$",
                 "invalidInputResponses": [
                     "Dieser Name ist leider nicht möglich. Achte darauf, dass der Teamname 5-60 Zeichen lang ist.",
-                    "Ich kann dir diesen Teamnamen leider nicht zuweisen. Bitte gib einen Teamnamen an, der 5-60 Zeichen lang ist."
+                    "Ich kann dir diesen Teamnamen leider nicht zuweisen. Bitte gib einen Teamnamen an, der 5-60 Zeichen lang ist.",
+                    "Entschuldigung, dieser Teamname ist nicht möglich. Bitte wähle einen Teamnamen, der 5-60 Zeichen lang ist.",
+                    "Leider ist dieser Name nicht zulässig. Der Teamname sollte zwischen 5 und 60 Zeichen lang sein.",
+                    "Es tut mir leid, aber dieser Name ist nicht erlaubt. Bitte gib einen Teamnamen an, der 5-60 Zeichen lang ist."
                 ]
             },
             {
@@ -517,7 +586,10 @@
                 "validInputRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&§#])[A-Za-zäöüÄÖÜß\\d@$!%*?&§#]{8,20}$",
                 "invalidInputResponses": [
                     "Das Passwort entspricht unseren Richtlinien nicht. Bitte gib ein Passwort ein, welches 8-20 Zeichen lang ist und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält.",
-                    "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten."
+                    "Das Passwort entspricht nicht den Anforderungen. Dein Passwort muss 8-20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten.",
+                    "Entschuldigung, das eingegebene Passwort erfüllt nicht die erforderlichen Kriterien. Bitte wähle ein Passwort mit 8-20 Zeichen, das mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält.",
+                    "Leider erfüllt das Passwort nicht die Kriterien. Es muss zwischen 8 und 20 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten.",
+                    "Es tut mir leid, aber das Passwort erfüllt nicht unsere Anforderungen. Bitte wähle ein Passwort mit 8-20 Zeichen, das mindestens einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthält."
                 ]
             },
             {
@@ -544,7 +616,10 @@
                 },
                 "invalidInputResponses": [
                     "Ich verstehe nicht genau, was du meinst. Bitte bestätige die Richtigkeit deiner Daten oder gib an, welche Information du ändern möchtest.",
-                    "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder nenne mir, welche Information du ändern möchtest."
+                    "Das habe ich leider nicht verstanden. Bitte sag mir Bescheid, ob ich deine Daten korrekt erfasst habe oder nenne mir, welche Information du ändern möchtest.",
+                    "Entschuldigung, ich habe deine Nachricht nicht ganz verstanden. Möchtest du die Richtigkeit deiner Daten bestätigen oder möchtest du etwas ändern? Wenn ja, welches Feld möchtest du ändern?",
+                    "Es tut mir leid, ich habe deine Nachricht nicht richtig verstanden. Möchtest du die Richtigkeit deiner Daten bestätigen oder etwas ändern? Wenn du etwas ändern möchtest, nenne mir bitte das entsprechende Feld.",
+                    "Entschuldigung, aber ich habe nicht ganz verstanden, was du meinst. Möchtest du bestätigen, dass deine Daten korrekt sind, oder möchtest du etwas ändern? Wenn ja, was?"
                 ]
             },
             {
