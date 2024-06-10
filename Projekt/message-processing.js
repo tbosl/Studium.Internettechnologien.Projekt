@@ -31,22 +31,36 @@ class MessageProcessor {
         let matchesCount = 0;
         let proccessedMessage = "";
         if (this.sessionManager.getStage(sender).regexCheck) {
+            // Check if the message matches the regex of the current stage.
             matchesCount = this.checkRegex(msg, sender);
             if (matchesCount == 1) {
                 proccessedMessage = msg;
             }
         } else {
+            // Check if the message matches the valid inputs of the current stage.
             let matches = this.countMatchesWithValidInputs(msg.toLowerCase(), sender);
             matchesCount = matches.length;
             if (matchesCount == 1 || (matchesCount > 1 && !this.sessionManager.getStage(sender).uniqueMatchRequired)) {
                 proccessedMessage = matches[0];
+            }else{
+                proccessedMessage = "";
             }
         }
-        if (matchesCount == 0 || (matchesCount > 1 && this.sessionManager.getStage(sender).uniqueMatchRequired)) {
+        // if the user is entering a birthdate and the date is in the future, send a warning message.
+        if (this.sessionManager.getStage(sender).name.toLowerCase().includes('birthdate') && this.dateInFuture(msg)) {
+            this.bot.sendBotMessage(this.sessionManager.getStage(sender).dateInFutureWarning, sender);
+            return;
+        }
+
+        // if the user entered an invalid input or an input that can not be uniquely 
+        // determined but a unique match is required, send a random invalid input message.
+        if (proccessedMessage == "" || matchesCount == 0 || (matchesCount > 1 && this.sessionManager.getStage(sender).uniqueMatchRequired)) {
             this.bot.sendRandomInvalidInputMessage(sender);
             return;
         }
-        if ('dataKey' in this.sessionManager.getStage(sender)) { // save the data in the sessionData if the stage is requesting data to be saved (determinde if the datakey exists).
+
+        // save the data in the sessionData if the stage is requesting data to be saved (determinde if the datakey exists).
+        if ('dataKey' in this.sessionManager.getStage(sender)) {
             this.sessionManager.getUserInformation(sender)[this.sessionManager.getStage(sender).dataKey] = proccessedMessage;
         }
         this.stageManager.determineNextStage(msg, sender);
@@ -146,6 +160,19 @@ class MessageProcessor {
             result = result.concat(baseList[k])
         }
         return result;
+    }
+
+    /**
+     * Determines if the date in the message is in the future.
+     * 
+     * @param {str} msg The message containing only the date provided by the user. 
+     * 
+     * @returns True if the date is in the future, false otherwise.  
+     */
+    dateInFuture(msg) {
+        let date = new Date(msg);
+        let currentDate = new Date();
+        return date > currentDate;
     }
 
 }

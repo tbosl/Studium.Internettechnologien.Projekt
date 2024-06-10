@@ -183,7 +183,8 @@
                     "Entschuldigung, dieses Geburtsdatum kann ich nicht verwenden. Bitte gib dein Geburtsdatum im Format TT.MM.JJJJ an, und achte auf führende Nullen und den Punkt zwischen den Zahlen.",
                     "Das eingegebene Geburtsdatum ist ungültig. Bitte verwende das Format TT.MM.JJJJ und achte auf führende Nullen sowie den Punkt zwischen den Zahlen.",
                     "Entschuldigung, aber das eingegebene Geburtsdatum ist nicht gültig. Bitte gib es im Format TT.MM.JJJJ an und achte auf führende Nullen sowie den Punkt zwischen den Zahlen."
-                ]
+                ],
+                "dateInFutureWarning": "Das eingegebene Geburtsdatum liegt in der Zukunft. Bitte gib ein korrektes Geburtsdatum an."
             },
             {
                 "name": "enterPhone",

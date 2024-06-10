@@ -38,8 +38,6 @@ class StageManager {
      */
     determineNextStage(msg, sender) {
         let stage = this.sessionManager.getStage(sender);
-        let stageIndex = this.sessionManager.getStageIndex(sender);
-        let parentStage = this.sessionManager.getParentStage(sender);
         if (this.sessionManager.isEditing(sender)) {
             this.switchToNextStageAfterEditing(sender);
             return;
