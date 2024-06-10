@@ -117,6 +117,10 @@ class MessageProcessor {
         let matches = []
         let validInputs = this.determineValidInput(sender);
         for (let str of validInputs) {
+            // if the message is the exact same as the valid input, than there is no need to check for other matches.
+            if (msg == str.toLowerCase()) {
+                return [str];
+            }
             if (msg.includes(str.toLowerCase()) || str.toLowerCase().includes(msg)) {
                 matches.push(str);
             }
