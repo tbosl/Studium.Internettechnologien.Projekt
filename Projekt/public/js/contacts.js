@@ -21,4 +21,6 @@ function loadPageContent(data) {
     $('#discord-container a img').attr('src', content.socials.discord.logo);
     $('#flyer-1').attr('src', content.images.flyer1.src);
     $('#flyer-1').attr('alt', content.images.flyer1.alt);
+    $('#flyer-2').attr('src', content.images.flyer2.src);
+    $('#flyer-2').attr('alt', content.images.flyer2.alt);
 }

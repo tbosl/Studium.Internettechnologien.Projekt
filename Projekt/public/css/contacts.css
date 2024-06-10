@@ -6,7 +6,6 @@
   float: left;
   margin-top: 5%;
   margin-top: 50px;
-  margin-right: 7%;
   border-width: 2px;
   border-style: solid;
   border-color: #c80d0d;
@@ -36,19 +35,21 @@
 
 #links-and-flyer-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   text-align: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1500px) {
   #links-and-flyer-container {
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
   }
 }
 
-#flyer-1 {
+#flyer-1,
+#flyer-2 {
   margin-top: 50px;
   border-width: 2px;
   border-style: solid;

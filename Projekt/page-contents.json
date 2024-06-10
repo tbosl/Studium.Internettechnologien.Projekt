@@ -34,6 +34,11 @@
             "flyer1": {
                 "src": "media/Imola.png",
                 "alt": "Flyer for the 12 hours of Imola. The flyer shows a picture of the track and the event name."
+            },
+            "flyer2":
+            {
+                "src": "media/Kyalami.png",
+                "alt": "Flyer for the 12 hours of Kyalami. The flyer shows a picture of the track and the event name."
             }
         }
     },
