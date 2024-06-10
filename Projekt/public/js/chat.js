@@ -3,6 +3,28 @@ const botName = "MegaBot";
 var user = '';
 var invalidMessageSendAsLastMessage = false;
 
+// Fetch the message content json from the server.
+let messageJsonContent;
+fetch('/message-content.json')
+    .then(response => response.json())
+    .then(data => {
+        messageJsonContent = data;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+// Fetch the page content json from the server.
+let pageJsonContent;
+fetch('/page-contents.json')
+    .then(response => response.json())
+    .then(data => {
+        pageJsonContent = data;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
 /**
  * Load the content of the page based on the provided json data.
  * (Stored at project root: message-content.json)
@@ -92,13 +114,22 @@ function validateMessage() {
  */
 function scrollToBottom() {
     var element = $("#msgs");
-    element.scrollTop(element[0].scrollHeight);;
+    element.scrollTop(element[0].scrollHeight);
+}
+
+/**
+ * Scrolls the message container by 100 pixels.
+ */
+function scrollHundredPixels() {
+    var element = $("#msgs");
+    element.scrollTop(element.scrollTop() + 100);
 }
 
 /**
  * Sets up the action to be taken when the socket receives a message.
  * If the message is of type 'msg' it will create append the message to the chat container.
- * On each received message it will scroll to the bottom of the chat container.
+ * On each received message it will scroll to the bottom of the chat container if it is not prevented
+ * based on the content of the message (e. g. for summary of registrations).
  * 
  * @param {*} recevivedMsg The json object received as string from the socket.
  */
@@ -110,7 +141,12 @@ socket.onmessage = function (recevivedMsg) {
             var messageToChat = prepareMessageContainer(data.msg, data.name);
         }
         $('#msgs').append(messageToChat);
-        scrollToBottom();
+
+        if (scrollingToBottomRequired(data.msg)) {
+            scrollToBottom();
+        } else {
+            scrollHundredPixels();
+        }
     }
 };
 
@@ -138,19 +174,47 @@ function prepareMessageContainer(msg, name) {
  * @returns The string representation of the HTML code for the div with the message and the name of the sender.
  */
 function showInvalidMessageHintInChat() {
-    fetch('/page-contents.json')
-        .then(response => response.json())
-        .then(data => {
-            var msg = data.chat.invalidMessageHint;
-            var content = prepareMessageContainer(msg, botName);
-            $('#msgs').append(content);
-            scrollToBottom();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    if (pageJsonContent !== undefined) {
+        var msg = pageJsonContent.chat.invalidMessageHint;
+        var content = prepareMessageContainer(msg, botName);
+        $('#msgs').append(content);
+        scrollToBottom();
+    } else {
+        console.error('Error: pageJsonContent is undefined');
+    }
     invalidMessageSendAsLastMessage = true;
+
 }
+
+/**
+ * Determine whether the chat is required to be scrolled to the bottom.
+ * It compares the first sentence of the message with the first sentence of all
+ * overview stages introductions. If a match is found that there is no scrolling required.
+ * 
+ * @param {str} msg The message to be sent.
+ * 
+ * @returns false if the message is an overview message of a process (e. g. registration process),
+ *          else true.
+ */
+function scrollingToBottomRequired(msg) {
+    try {
+        let data = messageJsonContent;
+        for (let parentStage in data.stages) {
+            for (let stage of data.stages[parentStage]) {
+                if (stage.name.toLowerCase().includes('overview')) {
+                    if (msg.split('.')[0] === stage.introduction.split('.')[0]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    } catch (error) {
+        console.error('Error:', error);
+        return true;
+    }
+}
+
 
 /**
  * Replaces all placeholders of the format {{/n}} with line breaks.

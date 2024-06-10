@@ -40,13 +40,12 @@
         "welcomeWorkflow": [
             {
                 "name": "welcome",
-                "introduction": "Willkommen im Chat der SEC. Du kannst hier ein Fahrerprofil anlegen, um an den SEC-Rennen teilzunehmen. Alternativ kannst du uns das Fahrzeug, mit welchem du teilnehmen möchstest mitteilen. Du kannst den Dialog jederzeit abbrechen, lass es mich einfach wissen. Bitte achte darauf Sondderzeichen wie Anführungszeichen zu vermeiden, da diese nicht gesendet werden können. In diesem Fall wird das Eingabefeld rot umrandet.",
+                "introduction": "Willkommen im Chat der SEC. Du kannst hier ein Fahrerprofil anlegen, um an den SEC-Rennen teilzunehmen. Alternativ kannst du uns das Fahrzeug, mit welchem du teilnehmen möchstest, mitteilen. Du kannst den Dialog jederzeit abbrechen, lass es mich einfach wissen. Bitte achte darauf Sonderzeichen wie Anführungszeichen zu vermeiden, da diese nicht gesendet werden können. In diesem Fall wird das Eingabefeld rot umrandet.",
                 "uniqueMatchRequired": true,
                 "regexCheck": false,
                 "validInputs": {
                     "registerDriver": [
-                        "Profil",
-                        "Fahrer",
+                        "Fahrerprofil",
                         "Account"
                     ],
                     "registerVehicle": [
@@ -209,7 +208,7 @@
                 "editIntroduction": "Bitte nenne mir die geänderte Straße.",
                 "goToNextStageAfterEdit": true,
                 "regexCheck": true,
-                "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.' ][A-Za-zäöüßÄÖÜÀ-ÿ]+)*\\.$",
+                "validInputRegex": "^[A-Za-zäöüßÄÖÜÀ-ÿ]{1,50}(?:[-.' ][A-Za-zäöüßÄÖÜÀ-ÿ]+)*\\.?$",
                 "invalidInputResponses": [
                     "Das ist kein gültiger Straßenname. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
                     "Dieser Straßenname existiert nicht. Bitte gib eine gültige Straße an, achte darauf keine Sonderzeichen wie @, $, & etc. zu verwenden.",
@@ -397,7 +396,7 @@
                         "Hausnummer",
                         "Postleitzahl",
                         "Stadt",
-                        "Bundesland",
+                        "Land",
                         "Region",
                         "Rennlizenz-ID",
                         "Passwort"

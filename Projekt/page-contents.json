@@ -42,13 +42,13 @@
         "heading": "Willkommen beim Simracing Endurance Cup",
         "trailerSrc": "https://www.youtube.com/embed/ofaFBxi3pz4?si=BMGxXXoyYC9G-Zhj",
         "trailerTitle": "Trailer",
-        "infoText": "Der Simracing Endurance Cup (SEC) ist eine 2020 gegründete Liga, die sich aus das Veranstalten von Ausdauerrennen in Assetto Corsa Competizione spezialisiert hat. Ende 2023 fand unser vorerst letztes Event statt.<br><br>Solltest du Fragen zu den <a href=\"./events.html\">Events</a>, den Regeln oder Sonstigem haben,kannst du jederzeit über <a href=\"https://discord.gg/n3QkwFav94\">Discord</a> mit oder unsere anderen <a href=\"./contacts.html\">Ansprechmöglichkeiten</a> in Kontakt treten. Erstelle hierfür einfach ein Ticket auf unserem Discord.<br><br>Wenn du dich selbst oder ein Fahrzeug für unsere Events anmelden möchtest, kannst du dies ganz einfach hier auf unserer Website tun. Besuche einfach unseren <a href=\"./index.html\">Chat</a> und melde dich an.<br><br>Wir freuen uns darauf, dich schon bald auf der Strecke begrüßen zu können."
+        "infoText": "Der Simracing Endurance Cup (SEC) ist eine 2020 gegründete Liga, die sich auf das Veranstalten von Ausdauerrennen in Assetto Corsa Competizione spezialisiert hat. Ende 2023 fand unser vorerst letztes Event statt.<br><br>Solltest du Fragen zu den <a href=\"./events.html\">Events</a>, den Regeln oder Sonstigem haben,kannst du jederzeit über <a href=\"https://discord.gg/n3QkwFav94\">Discord</a> mit oder unsere anderen <a href=\"./contacts.html\">Ansprechmöglichkeiten</a> in Kontakt treten. Erstelle hierfür einfach ein Ticket auf unserem Discord.<br><br>Wenn du dich selbst oder ein Fahrzeug für unsere Events anmelden möchtest, kannst du dies ganz einfach hier auf unserer Website tun. Besuche einfach unseren <a href=\"./index.html\">Chat</a> und melde dich an.<br><br>Wir freuen uns darauf, dich schon bald auf der Strecke begrüßen zu können."
     },
     "chat": {
         "title": "Chat",
         "heading": "Chat",
-        "infoText": "Nutze diesen Chat um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein neues Team erstellen.<br /> Lass uns einfach im Chat wissen, wie wir dir helfen können. Wir kümmern uns schnellst möglich um dein Anliegen!",
-        "invalidMessageHint": "Diese Nachricht kann nicht übertragen werden. Bitte entferen alle Anführungszeichen (\"), um fortzufahren"
+        "infoText": "Nutze diesen Chat, um mit uns in Kontakt zu treten. Du kannst dich registrieren und ein neues Team erstellen.<br /> Lass uns einfach im Chat wissen, wie wir dir helfen können. Wir kümmern uns schnellstmöglich um dein Anliegen!",
+        "invalidMessageHint": "Diese Nachricht kann nicht übertragen werden. Bitte entferen alle Anführungszeichen (\") und stelle sicher, dass deine Nachricht nicht leer ist, um fortzufahren."
     },
     "events": {
         "title": "Events",

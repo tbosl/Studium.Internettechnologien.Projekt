@@ -12,9 +12,18 @@ app.use('/css', express.static(__dirname + '/public/css'))
 app.use('/js', express.static(__dirname + '/public/js'))
 app.use('/images', express.static(__dirname + '/public/images'))
 
+// Send the page-contents to provide the content of the pages in a json and load them 
+// from the script of the page.
 app.get('/page-contents.json', function (req, res) {
   res.sendFile(path.join(__dirname, '/page-contents.json'));
 });
+
+// Send the message contents to make it available within the scripts of the pages.
+app.get('/message-content.json', function (req, res) {
+  res.sendFile(path.join(__dirname, '/message-content.json'));
+});
+
+
 
 // Start the express server
 var webserver = app.listen(8081, function () {
