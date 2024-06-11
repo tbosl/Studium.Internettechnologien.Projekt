@@ -40,7 +40,7 @@
         "welcomeWorkflow": [
             {
                 "name": "welcome",
-                "introduction": "Willkommen im Chat der SEC. Du kannst hier ein Fahrerprofil anlegen, um an den SEC-Rennen teilzunehmen. Alternativ kannst du uns das Fahrzeug, mit welchem du teilnehmen möchstest, mitteilen. Du kannst den Dialog jederzeit abbrechen, lass es mich einfach wissen. Bitte achte darauf Sonderzeichen wie Anführungszeichen zu vermeiden, da diese nicht gesendet werden können. In diesem Fall wird das Eingabefeld rot umrandet.",
+                "introduction": "Willkommen im Chat der SEC. Du kannst hier ein Fahrerprofil anlegen, um an den SEC-Rennen teilzunehmen. Alternativ kannst du uns das Fahrzeug, mit welchem du teilnehmen möchstest, mitteilen. Du kannst den Dialog jederzeit abbrechen, lass es mich einfach wissen. Bitte achte darauf Sonderzeichen wie Anführungszeichen zu vermeiden, da diese nicht gesendet werden können. In diesem Fall wird das Eingabefeld rot umrandet. Wenn du starten willst, sag mir einfach ob du ein Fahrerprofil anlegen oder ein Fahrzeug anmelden möchtest.",
                 "uniqueMatchRequired": true,
                 "regexCheck": false,
                 "validInputs": {
