@@ -174,9 +174,20 @@ class MessageProcessor {
      * @returns True if the date is in the future, false otherwise.  
      */
     dateInFuture(msg) {
-        let date = new Date(msg);
+        let date = this.convertDateStringToDateObject(msg);
         let currentDate = new Date();
         return date > currentDate;
+    }
+
+    /**
+     * Creates a date object from a date provided in the message.
+     * @param {str} date The date provided in the message in the format "dd.mm.yyyy".
+     *  
+     * @returns A date object created from the string. 
+     */
+    convertDateStringToDateObject(date) {
+        let dateArray = date.split(".");
+        return new Date(dateArray[2], dateArray[1] - 1, dateArray[0]);
     }
 
 }
