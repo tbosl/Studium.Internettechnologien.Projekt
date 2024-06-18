@@ -45,7 +45,7 @@
                 "regexCheck": false,
                 "validInputs": {
                     "registerDriver": [
-                        "Fahrerprofil",
+                        "Fahrer",
                         "Account"
                     ],
                     "registerVehicle": [
