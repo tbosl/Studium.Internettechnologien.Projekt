@@ -414,7 +414,7 @@
             },
             {
                 "name": "driverRegistrationVerfied",
-                "introduction": "Perfekt, die Registrierung deines Fahrerprofils war erfolgreich. Du kannst nun an den SEC-Rennen teilnehmen. Wenn du noch etwas weiters erledigen möchtest, lass es mich gerne wissen."
+                "introduction": "Perfekt, die Registrierung deines Fahrerprofils war erfolgreich. Du kannst nun an den SEC-Rennen teilnehmen. Wenn du noch etwas weiteres erledigen möchtest, lass es mich gerne wissen."
             }
         ],
         "vehicleRegistrationWorkflow": [
@@ -626,7 +626,7 @@
             },
             {
                 "name": "vehicleRegistrationVerfied",
-                "introduction": "Vielen Dank, dein Fahrzeug wurde erfolgreich registriert. Du kannst nun mit ihm an den SEC-Rennen teilnehmen. Wenn du noch etwas weiters erledigen möchtest, lass es mich gerne wissen."
+                "introduction": "Vielen Dank, dein Fahrzeug wurde erfolgreich registriert. Du kannst nun mit ihm an den SEC-Rennen teilnehmen. Wenn du noch etwas weiteres erledigen möchtest, lass es mich gerne wissen."
             }
         ]
     }
