@@ -122,7 +122,7 @@ function scrollToBottom() {
  */
 function scrollHundredPixels() {
     var element = $("#msgs");
-    element.scrollTop(element.scrollTop() + 100);
+    element.scrollTop(element.scrollTop() + 400);
 }
 
 /**
@@ -138,14 +138,17 @@ socket.onmessage = function (recevivedMsg) {
     if (data.type == 'msg') {
         var isMegaBot = data.name == botName;
         if (data.name == user || (isMegaBot && data.sender == user) || (isMegaBot && data.sender == botName)) {
-            var messageToChat = prepareMessageContainer(data.msg, data.name);
-        }
-        $('#msgs').append(messageToChat);
-
-        if (scrollingToBottomRequired(data.msg)) {
-            scrollToBottom();
-        } else {
-            scrollHundredPixels();
+            var messageToChatContainer = prepareMessageContainer(data.msg, data.name);
+            $('#msgs').append(messageToChatContainer);
+            console.log($('#msgs').children().length);
+            if ($('#msgs').children().length == 1) {
+                return;
+            }
+            if (scrollingToBottomRequired(messageToChatContainer)) {
+                scrollToBottom();
+            } else {
+                scrollHundredPixels();
+            }
         }
     }
 };
@@ -191,28 +194,16 @@ function showInvalidMessageHintInChat() {
  * It compares the first sentence of the message with the first sentence of all
  * overview stages introductions. If a match is found that there is no scrolling required.
  * 
- * @param {str} msg The message to be sent.
+ * @param {str} messageToChatContainer The container of the message to be appended to the chat.
  * 
  * @returns false if the message is an overview message of a process (e. g. registration process),
- *          else true.
+ *          or if it is the welcome message, else true.
  */
-function scrollingToBottomRequired(msg) {
-    try {
-        let data = messageJsonContent;
-        for (let parentStage in data.stages) {
-            for (let stage of data.stages[parentStage]) {
-                if (stage.name.toLowerCase().includes('overview')) {
-                    if (msg.split('.')[0] === stage.introduction.split('.')[0]) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    } catch (error) {
-        console.error('Error:', error);
-        return true;
+function scrollingToBottomRequired(messageToChatContainer) {
+    if ($('#msgs').height() < messageToChatContainer.height()) {
+        return false;
     }
+    return true;
 }
 
 

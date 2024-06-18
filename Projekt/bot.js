@@ -110,7 +110,7 @@ class bot {
    * @param {str} sender The user of the session.
    */
   sendBotMessage(content, sender) {
-    content = this.exchangePlaceholdersForAcutalValues(content, sender);
+    content = this.exchangePlaceholdersWithAcutalValues(content, sender);
     var msg = '{"type": "msg", "name":"' + this.name + '", "msg":"' + content + '","sender":"' + sender + '"}'
     console.log('Send: ' + msg)
     this.client.con.sendUTF(msg)
@@ -132,10 +132,11 @@ class bot {
    * @param {str} sender The user of the session. 
    * @returns 
    */
-  exchangePlaceholdersForAcutalValues(content, sender) {
+  exchangePlaceholdersWithAcutalValues(content, sender) {
     let dataset = this.sessionManager.getUserInformation(sender);
+    let optionalLinebreak = Object.hasOwn(this.sessionManager.getStage(sender), 'lineBreaksAfterPlaceholders') && this.sessionManager.getStage(sender).lineBreaksAfterPlaceholders ? "{{/n}}" : "";
     for (let key in dataset) {
-      let optionalLinebreak = this.sessionManager.getStage(sender).name == "driverRegistrationOverview" || this.sessionManager.getStage(sender).name == "vehicleRegistrationOverview" ? "{{/n}}" : "";
+      //let optionalLinebreak = this.sessionManager.getStage(sender).name == "driverRegistrationOverview" || this.sessionManager.getStage(sender).name == "vehicleRegistrationOverview" ? "{{/n}}" : "";
       if (content.includes("{{" + key + "}}")) {
         content = content.replace("{{" + key + "}}", optionalLinebreak + "<b>" + dataset[key] + "</b>" + optionalLinebreak + optionalLinebreak);
       }
