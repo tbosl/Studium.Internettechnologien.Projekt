@@ -6,6 +6,7 @@ fetch('/page-contents.json')
     .then(data => {
         $('body').css('display', 'none');
         loadContentOfHeadAndBackground(data);
+        loadFooter(data);
         // Load the content of the unique page. This method is implemented in the specific js file of each page.
         loadPageContent(data);
         $('body').css('display', 'block');
@@ -16,7 +17,7 @@ fetch('/page-contents.json')
 
 /**
  * Load the content of the header and the 
- * @param {*} data 
+ * @param {*} data The json object that contains the content of the pages.
  */
 function loadContentOfHeadAndBackground(data) {
     loadNavigationBar();
@@ -48,6 +49,15 @@ function loadNavigationBar() {
         + '</li>'
         + '</ul>'
         + '</nav>');
+}
+
+/**
+ * Dynamically load the footer of the page.
+ * 
+ * @param {*} data The json object that contains the content of the pages.
+ */
+function loadFooter(data) {
+    $("#footer").html('<p>' + data.footer.content + '</p>');
 }
 
 /**

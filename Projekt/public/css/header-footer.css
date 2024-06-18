@@ -1,3 +1,10 @@
+#footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
 .links-to-other-pages {
   color: white;
   font-size: 40px;
