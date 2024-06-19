@@ -50,9 +50,9 @@ class bot {
       connection.on('message', function (message) {
         if (message.type === 'utf8') {
           var data = JSON.parse(message.utf8Data)
-          console.log('Received: ' + data.msg + ' ' + data.name)
           if (data.type == 'join') {
-            onClientJoins();
+            var usersWithoutBot = data.names.filter(name => name !== "MegaBot");
+            onClientJoins(usersWithoutBot[usersWithoutBot.length - 1]);
           }
         }
       });
@@ -71,10 +71,12 @@ class bot {
       /**
        * Send a welcome message to the user once he joins the chat.
        * The message is formatted as JSON.
+       * 
+       * @param {str} user The user who joined the chat.
        */
-      function onClientJoins() {
+      function onClientJoins(user) {
         var inhalt = content.stages.welcomeWorkflow[0].introduction;
-        var msg = '{"type": "msg", "name": "' + "MegaBot" + '", "msg":"' + inhalt + '","sender":"MegaBot" }';
+        var msg = '{"type": "msg", "name": "' + "MegaBot" + '", "msg":"' + inhalt + '","sender":"' + user + '"}';
         console.log('Send: ' + msg)
         connection.sendUTF(msg);
       }

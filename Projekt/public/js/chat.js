@@ -43,7 +43,7 @@ function loadPageContent(data) {
  * Open a new socket for the user and send a join message to the server.
  */
 socket.onopen = function () {
-    user = "driver" + Math.floor(Math.random() * Math.floor(700));
+    user = "driver" + Math.floor(Math.random() * Math.floor(10000));
     socket.send('{"type": "join", "name":"' + user + '"}');
 }
 
@@ -135,12 +135,12 @@ function scrollHundredPixels() {
  */
 socket.onmessage = function (recevivedMsg) {
     var data = JSON.parse(recevivedMsg.data);
+    console.log(data);
     if (data.type == 'msg') {
         var isMegaBot = data.name == botName;
-        if (data.name == user || (isMegaBot && data.sender == user) || (isMegaBot && data.sender == botName)) {
+        if (data.name == user || (isMegaBot && data.sender == user)) {
             var messageToChatContainer = prepareMessageContainer(data.msg, data.name);
             $('#msgs').append(messageToChatContainer);
-            console.log($('#msgs').children().length);
             if ($('#msgs').children().length == 1) {
                 return;
             }
