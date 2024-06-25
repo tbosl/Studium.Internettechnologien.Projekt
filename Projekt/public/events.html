@@ -1,3 +1,24 @@
+<!--
+File: events.html
+
+Description:
+This HTML file is structured to showcase the upcoming events, featuring
+a layout that includes a calendar image and detailed event information. The content for
+the title, calendar image, and event descriptions are dynamically loaded via JavaScript,
+utilizing `shared.js` for common elements like the header and `events.js` for event-specific
+content. This approach allows for easy updates to event details through JSON data without
+direct HTML edits. The file also links to CSS stylesheets for consistent styling across
+the application and includes jQuery for DOM manipulation.
+
+Usage:
+This file is intended to show the events page to inform users about upcoming activities
+or schedules. The dynamic content loading necessitates that the server provides the 
+relevant JSON data for the events.
+
+Date: 25.06.2024
+Author: Tobias Bosl
+-->
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -26,7 +47,11 @@
             <div id="headline-container">
                 <h1></h1>
             </div>
+
+            <!-- The image shows the calender of the current season. -->
             <img id="calender-image" width="75%">
+
+            <!-- The container to provide information regarding the page's topic. -->
             <div id="info-container">
                 <p id="info-text"></p>
             </div>

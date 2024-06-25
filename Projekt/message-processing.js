@@ -1,3 +1,28 @@
+/**
+ * File: message-processing.js
+ * 
+ * Description:
+ * This file defines the MessageProcessor class responsible for processing
+ * messages received from users. It interacts with a bot instance, a session
+ * manager, and a stage manager to handle user messages effectively. The main
+ * functionality includes processing incoming messages, checking for cancellation
+ * commands, and advancing the conversation flow based on the current stage of
+ * interaction.
+ * 
+ * The MessageProcessor class utilizes the session manager to track the conversation
+ * state for each user and employs the stage manager to determine the appropriate
+ * response or action based on the user's current stage in the conversation flow.
+ * 
+ * Usage:
+ * This class is intended to be instantiated with references to the bot, session
+ * manager, and stage manager. It provides a method `process` to handle the
+ * incoming messages and execute the necessary logic based on the application's
+ * requirements and the user's current stage.
+ * 
+ * Date: 25.06.2024
+ * Author: Tobias Bosl
+ */
+
 var content = require('./message-content.json');
 /**
  * This class is responsible for processing messages from the user.

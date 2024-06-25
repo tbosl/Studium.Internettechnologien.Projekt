@@ -1,3 +1,28 @@
+/**
+ * File: stage-management.js
+ * 
+ * Description:
+ * This file defines the StageManager class, which is responsible for managing the
+ * stages of interaction within a chat application. The StageManager works closely
+ * with the SessionManager to track and update the current stage of interaction for
+ * each user, ensuring a coherent and contextually appropriate conversational flow.
+ * 
+ * The class provides functionalities to set the initial state of a user to the
+ * welcome workflow, manage the progression through different stages based on user
+ * input, and handle any necessary updates to the session state. It utilizes a
+ * predefined set of stages defined in `message-content.json` to guide the interaction
+ * flow.
+ * 
+ * Usage:
+ * The StageManager class is instantiated with references to the bot instance and the
+ * SessionManager. It is primarily used within the bot's message handling logic to
+ * determine the next stage of interaction based on the current context and user
+ * input, facilitating a dynamic and responsive chat experience.
+ * 
+ * Date: 25.06.2024
+ * Author: Tobias Bosl
+ */
+
 // The required imports.
 const bot = require("./bot");
 const SessionManager = require("./session-management");

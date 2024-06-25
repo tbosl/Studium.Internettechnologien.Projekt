@@ -1,3 +1,30 @@
+/**
+ * File: chat.js
+ * 
+ * Description:
+ * This JavaScript file is responsible for managing the chat functionality in a web
+ * application. It establishes a WebSocket connection to a server for real-time
+ * messaging and dynamically loads content into the chat interface based on JSON data
+ * fetched from the server. The file defines the setup for the WebSocket connection,
+ * including the handling of incoming and outgoing messages, and the dynamic loading
+ * of message and page content from external JSON files (`message-content.json` and
+ * `page-contents.json`).
+ * 
+ * The script initializes a WebSocket connection to the server at a specified address
+ * and sets up event listeners for handling messages sent and received through this
+ * connection. It also fetches JSON data from the server to populate the chat interface
+ * with predefined messages and page content, enhancing the user experience by providing
+ * a rich, dynamic chat environment.
+ * 
+ * Usage:
+ * This file is intended to be included in the HTML of the chat functionality. 
+ * It relies on the WebSocket API for communication and the Fetch API
+ * for loading external content.
+ * 
+ * Date: 25.06.2024
+ * Author: Extended by Tobias Bosl
+ */
+
 var socket = new WebSocket('ws://127.0.0.1:8181/', 'chat');
 const botName = "MegaBot";
 var user = '';

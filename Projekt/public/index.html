@@ -1,3 +1,24 @@
+<!--
+File: index.html
+
+Description:
+This HTML file serves as the main landing page of the application, designed to provide
+users with introductory information, including a video and textual content. The structure
+includes placeholders for dynamic content such as the page title, video source, and
+informational text, which are loaded via JavaScript using `shared.js` for common elements
+across pages and `info.js` for page-specific content. This dynamic content loading strategy
+facilitates easy updates to the page's information without direct HTML modifications. The
+file also links to CSS stylesheets for styling and includes jQuery for DOM manipulation.
+
+Usage:
+This file is intended to be the entry point of the application, providing users with
+essential information upon their first visit. The dynamic loading of content requires 
+the server to supply the necessary JSON data for the introductory information and video.
+
+Date: 25.06.2024
+Author: Tobias Bosl
+-->
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -27,9 +48,11 @@
             <div id="headline-container">
                 <h1></h1>
             </div>
+            <!-- The iframe for the trailer or other videos in the future. -->
             <iframe id="video" width="80%" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- The container to provide information regarding the page's topic. -->
             <div id="info-container">
                 <p id="info-text"></p>
             </div>

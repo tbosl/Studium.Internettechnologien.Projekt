@@ -1,4 +1,27 @@
-<html>
+<!--
+File: chat.html
+
+Description:
+This HTML file serves as the chat page of the application, providing the user 
+interface for real-time messaging. It includes the structure for displaying messages,
+a form for sending new messages, and placeholders for dynamic content such as the page
+title and chat messages, which are loaded via JavaScript. The file links to several CSS 
+stylesheets for styling the page and includes jQuery and custom JavaScript files 
+(`shared.js` and `chat.js`) for dynamic content loading and chat functionality. 
+
+The `shared.js` script is used to load common elements across pages, such as the header,
+while `chat.js` specifically manages the chat functionality and dynamic content related
+to the chat page.
+
+Usage:
+This file is intended to be used for the displaying of the chat feature.
+
+Date: 25.06.2024
+Author: Tobias Bosl
+-->
+
+<!DOCTYPE html>
+<html lang="de">
 
 <!-- The content of all empty tags (such as title) is loaded within shared.js and chat.js -->
 
@@ -25,13 +48,18 @@
       <div id="headline-container">
         <h1></h1>
       </div>
+      
+      <!-- The container to provide information regarding the page's topic. -->
       <div id="info-container">
         <p id="info-text">
         </p>
       </div>
+
+      <!-- The chat frame containing the chat messages and input form. -->
       <div id="chat-frame">
         <div id="chat">
           <div id="msgs"></div>
+          <!-- This form provides the input area and send-button to allow the user to send messages. -->
           <form id="chatForm">
             <div id="inputArea">
               <input id="msg" type="text" />

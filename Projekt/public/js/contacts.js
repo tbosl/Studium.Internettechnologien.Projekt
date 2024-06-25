@@ -1,4 +1,35 @@
 /**
+ * File: contacts.js
+ * 
+ * Description:
+ * This JavaScript file is dedicated to dynamically loading and displaying contact
+ * information and social media links on the contacts page, based on JSON data provided. The
+ * primary function, `loadPageContent`, takes JSON data as input and updates the DOM
+ * elements to reflect the contact details, social media usernames, links, and logos,
+ * as well as images specified in the JSON file (`message-content.json`).
+ * 
+ * The function specifically targets elements within the HTML that are designated for
+ * displaying Instagram, Twitch, YouTube, and Discord information, along with two
+ * promotional flyers. It uses jQuery to select these elements and update their
+ * attributes (`href`, `src`, `alt`, and text content) to match the data provided in
+ * the JSON. This approach allows for a flexible and easily updatable contact page
+ * where changes to contact information or social media links can be made centrally
+ * within the JSON file, without the need to directly modify the HTML.
+ * 
+ * Usage:
+ * This file should be included in the HTML of the contact page
+ * It requires jQuery for DOM manipulation and is designed to be called with JSON data
+ * that follows a specific structure, as outlined in `message-content.json`. This
+ * structure includes sections for socials (Instagram, Twitch, YouTube, Discord) and
+ * images (flyers), each with relevant sub-properties (username, link, logo for socials;
+ * src, alt for images).
+ * 
+ * Date: 25.06.2024
+ * Author: Tobias Bosl
+ */
+
+
+/**
  * Load the content of the page based on the provided json data.
  * (Stored at project root: message-content.json)
  * 

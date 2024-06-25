@@ -1,3 +1,33 @@
+/**
+ * File: session-management.js
+ * 
+ * Description:
+ * This file defines the SessionManager class responsible for managing user sessions
+ * within the application. It handles the creation, tracking, and updating of session
+ * data for each user, ensuring that user interactions are stateful and personalized.
+ * The SessionManager class utilizes a dictionary to store session data, with each
+ * user's identifier (sender) serving as the key. This class plays a crucial role in
+ * maintaining the context of user interactions, especially in applications involving
+ * complex conversational flows or requiring user-specific data retention across
+ * multiple interactions - e.g., during the registration processes.
+ * 
+ * The class provides methods for initializing new user sessions, checking the
+ * existence of sessions, and managing the progression of users through different
+ * stages of interaction, in collaboration with the StageManager class. This ensures
+ * that users are always presented with the appropriate responses and actions based
+ * on their current context and past interactions.
+ * 
+ * Usage:
+ * The SessionManager class is intended to be instantiated once and used throughout
+ * the application to manage all user sessions. It requires an instance of the
+ * StageManager class to handle the transition of users through various stages of
+ * interaction.
+ * 
+ * Date: 25.06.2024
+ * Author: Tobias Bosl
+ */
+
+
 // The required imports.
 const StageManager = require('./stage-management');
 

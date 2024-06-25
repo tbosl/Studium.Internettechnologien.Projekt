@@ -1,3 +1,26 @@
+<!--
+File: contacts.html
+
+Description:
+This HTML file is designed to display the contact information and social media links
+of the application. It structures the page to include sections for various contact
+methods and social media platforms, with placeholders for dynamic content that will
+be loaded via JavaScript. The file links to CSS stylesheets for page styling and
+includes jQuery and a custom JavaScript file (`contacts.js`) to dynamically load
+contact information and social media links from a JSON data source. The dynamic
+loading approach allows for easy updates to contact details without modifying the
+HTML directly. The file also includes a shared JavaScript file (`shared.js`) to
+load common elements across pages, such as the header and footer.
+
+Usage:
+This file is used to provide the contact page. The dynamic content
+loading requires the server to provide the necessary JSON data for contact information
+and social media links.
+
+Date: 25.06.2024
+Author: Tobias Bosl
+-->
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -26,7 +49,12 @@
             <div id="headline-container">
                 <h1></h1>
             </div>
+
+            <!-- The container which contains the flyers and links. -->
             <div id="links-and-flyer-container">
+                <!-- The links to the social media pages. The content and link is loaded by the
+                 contacts.js script.
+                -->
                 <div id="social-media-links-container">
                     <div id="instagram-container">
                         <a>
@@ -53,6 +81,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- The flyers for the events. The content is loaded by the contacts.js script. -->
                 <div>
                     <img id="flyer-1" width="390px">
                 </div>

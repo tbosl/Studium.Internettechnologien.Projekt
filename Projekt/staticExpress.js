@@ -1,3 +1,30 @@
+/**
+ * File: staticExpress.js
+ * 
+ * Description:
+ * This file sets up a basic Express server for serving static files and specific JSON
+ * data endpoints in a chat application. It demonstrates the configuration of an Express
+ * app to serve static resources such as CSS, JS, and images from a designated public
+ * directory, enhancing the application's modularity and ease of maintenance.
+ * 
+ * Additionally, it defines routes for serving JSON content, specifically `page-contents.json`
+ * and `message-content.json`, which are crucial for dynamic content delivery within the
+ * application's pages. This setup facilitates the separation of static and dynamic content,
+ * allowing for a more organized and scalable application structure.
+ * 
+ * The server is configured to listen on port 8081, providing a local development environment
+ * for testing and development purposes.
+ * 
+ * Usage:
+ * This script is intended to be run as a standalone Node.js application. It requires the
+ * `express` package for the web server functionality and `path` for resolving file paths.
+ * Running this file will start an Express server that serves static files and specific JSON
+ * endpoints, making it a foundational part of the application's backend infrastructure.
+ * 
+ * Date: 25.06.2024
+ * Author: Extended by Tobias Bosl
+ */
+
 // Required pages.
 var bot = require('./bot.js')
 var express = require('express')

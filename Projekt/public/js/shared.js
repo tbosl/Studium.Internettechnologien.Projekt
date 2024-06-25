@@ -1,4 +1,35 @@
 /**
+ * File: shared.js
+ * 
+ * Description:
+ * This JavaScript file is crucial for initializing and dynamically loading shared content
+ * across multiple pages of the application. It utilizes the Fetch API to retrieve page
+ * content from a JSON file (`/page-contents.json`) and applies it to common elements such
+ * as the header, navigation bar, footer, and background. The script ensures a consistent
+ * look and feel across the website by centralizing the management of these elements.
+ * 
+ * The `loadContentOfHeadAndBackground` function specifically updates the header and
+ * background elements based on the data fetched, including setting the logo source and
+ * updating navigation links texts. The `loadNavigationBar` function dynamically generates the
+ * navigation bar HTML, making it reusable and easily maintainable across different pages.
+ * 
+ * Additionally, the script provides a mechanism for loading page-specific content through
+ * the `loadPageContent` function, which is defined in each page's specific JavaScript file.
+ * This approach allows for a modular design where shared functionality is centralized in
+ * this file, while page-specific behavior can be implemented separately.
+ * 
+ * Usage:
+ * This file should be included in all HTML pages of the web application that require the
+ * shared content. It ensures that the navigation bar, footer, and other common elements
+ * are consistently presented across the site, while still allowing for page-specific
+ * content to be loaded dynamically.
+ * 
+ * Date: 25.06.2024
+ * Author: Tobias Bosl
+ */
+
+
+/**
  * Initialize the elements of the page based on the content of the json file.
  */
 fetch('/page-contents.json')
