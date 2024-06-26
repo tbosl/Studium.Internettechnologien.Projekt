@@ -4,7 +4,8 @@
 }
 
 #video {
-  height: 40vw;
+  height: auto;
+  aspect-ratio: 16/9;
   margin-top: 50px;
   border-width: 2px;
   border-style: solid;
