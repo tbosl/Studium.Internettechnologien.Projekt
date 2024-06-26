@@ -162,7 +162,6 @@ function scrollHundredPixels() {
  */
 socket.onmessage = function (recevivedMsg) {
     var data = JSON.parse(recevivedMsg.data);
-    console.log(data);
     if (data.type == 'msg') {
         var isMegaBot = data.name == botName;
         if (data.name == user || (isMegaBot && data.sender == user)) {

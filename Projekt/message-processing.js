@@ -53,24 +53,11 @@ class MessageProcessor {
         if (canceled) {
             return;
         }
-        let matchesCount = 0;
-        let proccessedMessage = "";
-        if (this.sessionManager.getStage(sender).regexCheck) {
-            // Check if the message matches the regex of the current stage.
-            matchesCount = this.checkRegex(msg, sender);
-            if (matchesCount == 1) {
-                proccessedMessage = msg;
-            }
-        } else {
-            // Check if the message matches the valid inputs of the current stage.
-            let matches = this.countMatchesWithValidInputs(msg.toLowerCase(), sender);
-            matchesCount = matches.length;
-            if (matchesCount == 1 || (matchesCount > 1 && !this.sessionManager.getStage(sender).uniqueMatchRequired)) {
-                proccessedMessage = matches[0];
-            }else{
-                proccessedMessage = "";
-            }
-        }
+
+        // Find the matches of the message based on the valid inputs of the current stage
+        // and reduce the message to the relevant information.
+        let {matchesCount, proccessedMessage} = this.findMatches(msg, sender);
+
         // if the user is entering a birthdate and the date is in the future, send a warning message.
         if (this.sessionManager.getStage(sender).name.toLowerCase().includes('birthdate') && this.dateInFuture(msg)) {
             this.bot.sendBotMessage(this.sessionManager.getStage(sender).dateInFutureWarning, sender);
@@ -89,6 +76,37 @@ class MessageProcessor {
             this.sessionManager.getUserInformation(sender)[this.sessionManager.getStage(sender).dataKey] = proccessedMessage;
         }
         this.stageManager.determineNextStage(msg, sender);
+    }
+
+    /**
+     * Finds the matches of the message based on the valid inputs of the current stage.
+     * It provides a processed message that is minimized to the relevant information.
+     * 
+     * @param {str} msg The content of the message.
+     * @param {str} sender The user of the session.
+     * 
+     * @returns An object containing the amount of matches and the processed message.
+     */
+    findMatches(msg, sender){
+        let matchesCount = 0;
+        let proccessedMessage = "";
+        if (this.sessionManager.getStage(sender).regexCheck) {
+            // Check if the message matches the regex of the current stage.
+            matchesCount = this.checkRegex(msg, sender);
+            if (matchesCount == 1) {
+                proccessedMessage = msg;
+            }
+        } else {
+            // Check if the message matches the valid inputs of the current stage.
+            let matches = this.countMatchesWithValidInputs(msg.toLowerCase(), sender);
+            matchesCount = matches.length;
+            if (matchesCount == 1 || (matchesCount > 1 && !this.sessionManager.getStage(sender).uniqueMatchRequired)) {
+                proccessedMessage = matches[0];
+            }else{
+                proccessedMessage = "";
+            }
+        }
+        return {matchesCount, proccessedMessage};
     }
 
     /**
